@@ -138,15 +138,17 @@
         }
 
         /* Timeline */
-        .timeline-line::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            width: 4px;
-            background-color: var(--red);
-            transform: translateX(-50%);
+        @media (min-width: 768px) {
+            .timeline-line::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 50%;
+                width: 4px;
+                background-color: var(--red);
+                transform: translateX(-50%);
+            }
         }
 
         .cert-iframe {
@@ -178,11 +180,11 @@
 <body class="antialiased scroll-smooth">
 
     <!-- Navbar -->
-    <nav class="fixed w-full z-50 glass-card px-6 py-4 flex justify-between items-center top-0 transition-all duration-300">
+    <nav class="fixed w-full z-50 glass-card px-6 py-4 flex flex-wrap justify-between items-center top-0 transition-all duration-300">
         <a href="#landing" class="flex items-center gap-2 text-brand-dark font-heading font-bold text-xl">
             <img src="assets/profile/sl_logo.png" alt="SL Logo" class="nav-logo-img h-10 w-auto">
         </a>
-        <div class="hidden md:flex space-x-6 text-sm font-semibold text-brand-dark">
+        <div class="hidden md:flex space-x-6 text-sm font-semibold text-brand-dark items-center">
             <a href="#about" class="hover:text-brand-red transition-colors">About</a>
             <a href="#experience" class="hover:text-brand-red transition-colors">Experience</a>
             <a href="#education" class="hover:text-brand-red transition-colors">Education</a>
@@ -191,10 +193,37 @@
             <a href="#skills" class="hover:text-brand-red transition-colors">Skills</a>
             <a href="#certifications" class="hover:text-brand-red transition-colors">Certifications</a>
             <a href="#achievements" class="hover:text-brand-red transition-colors">Achievements</a>
+            <a href="#contact" class="bg-brand-red text-white px-5 py-2 rounded-full font-semibold hover:bg-red-700 transition-colors shadow-lg shadow-red-500/30 ml-4">Let's Talk</a>
         </div>
-        <a href="#contact" class="hidden md:inline-block bg-brand-red text-white px-5 py-2 rounded-full font-semibold hover:bg-red-700 transition-colors shadow-lg shadow-red-500/30">Let's Talk</a>
-        <button class="md:hidden text-2xl text-brand-dark"><i class="fas fa-bars"></i></button>
+        <button id="mobile-menu-btn" class="md:hidden text-2xl text-brand-dark"><i class="fas fa-bars"></i></button>
+        
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden w-full mt-4 flex-col space-y-4 text-center pb-4 text-brand-dark font-semibold shadow-inner rounded-b-xl border-t border-gray-200">
+            <a href="#about" class="block hover:text-brand-red transition-colors pt-4">About</a>
+            <a href="#experience" class="block hover:text-brand-red transition-colors">Experience</a>
+            <a href="#education" class="block hover:text-brand-red transition-colors">Education</a>
+            <a href="#projects" class="block hover:text-brand-red transition-colors">Projects</a>
+            <a href="#blog" class="block hover:text-brand-red transition-colors">Blog</a>
+            <a href="#skills" class="block hover:text-brand-red transition-colors">Skills</a>
+            <a href="#certifications" class="block hover:text-brand-red transition-colors">Certifications</a>
+            <a href="#achievements" class="block hover:text-brand-red transition-colors">Achievements</a>
+            <a href="#contact" class="inline-block bg-brand-red text-white px-6 py-2 rounded-full font-semibold hover:bg-red-700 mt-2">Let's Talk</a>
+        </div>
     </nav>
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            var menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        });
+        document.querySelectorAll('#mobile-menu a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                var menu = document.getElementById('mobile-menu');
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+            });
+        });
+    </script>
 
     <!-- SECTION 1 — LANDING (#landing) -->
     <section id="landing" class="relative min-h-screen flex items-center justify-center mesh-bg text-white overflow-hidden pt-20">
@@ -214,7 +243,7 @@
             
             <h1 class="text-5xl md:text-7xl font-extrabold mb-4 font-heading tracking-tight drop-shadow-lg">Shidulla Laskar</h1>
             
-            <h2 class="text-xl md:text-2xl font-medium mb-8 text-brand-redAccent h-8">
+            <h2 class="text-base md:text-2xl font-medium mb-8 text-brand-redAccent min-h-[4rem] md:min-h-8">
                 <span class="typing-text" id="typewriter">Digital Marketing & Web Development Consultant | MBA Candidate — Marketing & International Business | Founder, MetricFlow Consulting</span>
             </h2>
             
@@ -275,7 +304,7 @@
                         <img src="assets/profile/shidulla.jpg.png" alt="Shidulla Laskar" class="about-photo-img relative z-10 w-full h-full object-cover rounded-3xl shadow-xl border-4 border-white">
                         
                         <!-- Floating Glass Cards -->
-                        <div class="absolute -bottom-10 -left-10 w-48 h-32 flip-card z-20">
+                        <div class="absolute -bottom-4 -left-4 md:-bottom-10 md:-left-10 w-36 h-24 md:w-48 md:h-32 flip-card z-20">
                             <div class="flip-card-inner w-full h-full relative">
                                 <div class="flip-card-front glass-card w-full h-full absolute rounded-xl p-4 flex flex-col justify-center items-center text-center">
                                     <i class="fas fa-bullseye text-2xl text-brand-red mb-2"></i>
@@ -288,7 +317,7 @@
                             </div>
                         </div>
 
-                        <div class="absolute -top-10 -right-10 w-48 h-32 flip-card z-20">
+                        <div class="absolute -top-4 -right-4 md:-top-10 md:-right-10 w-36 h-24 md:w-48 md:h-32 flip-card z-20">
                             <div class="flip-card-inner w-full h-full relative">
                                 <div class="flip-card-front glass-card w-full h-full absolute rounded-xl p-4 flex flex-col justify-center items-center text-center">
                                     <i class="fas fa-eye text-2xl text-brand-blue mb-2"></i>
@@ -321,11 +350,11 @@
                 <!-- Card 1 -->
                 <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group mb-12 animate-on-scroll">
                     <!-- Marker -->
-                    <div class="w-10 h-10 rounded-full bg-brand-red border-4 border-white shadow-lg absolute left-1/2 transform -translate-x-1/2 z-10 flex items-center justify-center group-hover:scale-125 transition-transform">
+                    <div class="hidden md:flex w-10 h-10 rounded-full bg-brand-red border-4 border-white shadow-lg absolute left-1/2 transform -translate-x-1/2 z-10 flex items-center justify-center group-hover:scale-125 transition-transform">
                         <i class="fas fa-briefcase text-white text-sm"></i>
                     </div>
                     <!-- Content -->
-                    <div class="w-[calc(50%-2.5rem)] glass-card p-6 rounded-2xl shadow-lg border-l-4 border-l-brand-blue hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-full md:w-[calc(50%-2.5rem)] glass-card p-6 rounded-2xl shadow-lg border-l-4 border-l-brand-blue hover:-translate-y-2 transition-transform duration-300">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="text-xl font-bold font-heading text-brand-dark">Founder, MetricFlow Consulting</h3>
                             <span class="bg-brand-blue text-white text-xs px-2 py-1 rounded-md font-semibold">Jan 2026 – Present</span>
@@ -351,7 +380,7 @@
                     <div class="w-10 h-10 rounded-full bg-brand-blue border-4 border-white shadow-lg absolute left-1/2 transform -translate-x-1/2 z-10 flex items-center justify-center group-hover:scale-125 transition-transform">
                         <i class="fas fa-star text-white text-sm"></i>
                     </div>
-                    <div class="w-[calc(50%-2.5rem)] glass-card p-6 rounded-2xl shadow-lg border-l-4 border-l-brand-red hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-full md:w-[calc(50%-2.5rem)] glass-card p-6 rounded-2xl shadow-lg border-l-4 border-l-brand-red hover:-translate-y-2 transition-transform duration-300">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="text-xl font-bold font-heading text-brand-dark">Customer Assistant, Max Fashion & Lifestyle</h3>
                             <span class="bg-brand-red text-white text-xs px-2 py-1 rounded-md font-semibold">Summer 2026</span>
@@ -374,10 +403,10 @@
 
                 <!-- Card 3 -->
                 <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group animate-on-scroll">
-                    <div class="w-10 h-10 rounded-full bg-brand-red border-4 border-white shadow-lg absolute left-1/2 transform -translate-x-1/2 z-10 flex items-center justify-center group-hover:scale-125 transition-transform">
+                    <div class="hidden md:flex w-10 h-10 rounded-full bg-brand-red border-4 border-white shadow-lg absolute left-1/2 transform -translate-x-1/2 z-10 flex items-center justify-center group-hover:scale-125 transition-transform">
                         <i class="fas fa-chalkboard-teacher text-white text-sm"></i>
                     </div>
-                    <div class="w-[calc(50%-2.5rem)] glass-card p-6 rounded-2xl shadow-lg border-l-4 border-l-brand-blue hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-full md:w-[calc(50%-2.5rem)] glass-card p-6 rounded-2xl shadow-lg border-l-4 border-l-brand-blue hover:-translate-y-2 transition-transform duration-300">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="text-xl font-bold font-heading text-brand-dark">Educational Consultant, NIOS</h3>
                             <span class="bg-gray-600 text-white text-xs px-2 py-1 rounded-md font-semibold">Jul 2021 – Aug 2024</span>
