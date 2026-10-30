@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shidulla Laskar | Portfolio</title>
+    <title>Shidulla Laskar | Commercial Strategy, Enterprise BI & Revenue Operations</title>
+    <meta name="description" content="Portfolio of Shidulla Laskar — Unilever FMCG Alum, Landmark Group Best Performer, MBA Candidate (Marketing & International Business), and Developer of Enterprise AI & BI Decision Support Systems.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
     <!-- Font Awesome 6 CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Tailwind CSS (for immediate modern styling) -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -22,6 +23,7 @@
                     colors: {
                         brand: {
                             dark: '#0a1930',
+                            navy: '#0f172a',
                             blue: '#1a3a6b',
                             light: '#2563eb',
                             accent: '#3b82f6',
@@ -33,6 +35,7 @@
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         heading: ['Poppins', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
                     }
                 }
             }
@@ -70,48 +73,52 @@
 
         /* Glassmorphism */
         .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 32px 0 rgba(10, 25, 48, 0.05);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 10px 30px -10px rgba(10, 25, 48, 0.08);
         }
         
         .glass-card-dark {
-            background: rgba(10, 25, 48, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            background: rgba(10, 25, 48, 0.8);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.3);
         }
 
         /* Mesh Gradient & Hero */
         .mesh-bg {
-            background-color: var(--blue-dark);
+            background-color: #071224;
             background-image: 
-                radial-gradient(at 20% 30%, rgba(26, 58, 107, 0.7) 0, transparent 50%), 
-                radial-gradient(at 80% 20%, rgba(220, 38, 38, 0.4) 0, transparent 50%), 
-                radial-gradient(at 50% 80%, rgba(37, 99, 235, 0.5) 0, transparent 50%);
+                radial-gradient(at 15% 25%, rgba(26, 58, 107, 0.85) 0, transparent 55%), 
+                radial-gradient(at 85% 15%, rgba(220, 38, 38, 0.35) 0, transparent 50%), 
+                radial-gradient(at 50% 85%, rgba(37, 99, 235, 0.45) 0, transparent 55%),
+                radial-gradient(at 90% 85%, rgba(15, 23, 42, 0.9) 0, transparent 50%);
             position: relative;
         }
 
         .floating-shape {
             position: absolute;
-            animation: float 6s ease-in-out infinite;
-            opacity: 0.2;
+            animation: float 7s ease-in-out infinite;
+            opacity: 0.15;
             z-index: 0;
+            pointer-events: none;
         }
 
         @keyframes float {
             0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
+            50% { transform: translateY(-20px) rotate(8deg); }
             100% { transform: translateY(0px) rotate(0deg); }
         }
 
         /* Typing Effect */
-        .typing-text::after {
+        .typing-cursor::after {
             content: '|';
-            animation: blink 1s step-end infinite;
+            animation: blink 0.8s step-end infinite;
+            color: #f87171;
+            font-weight: 300;
         }
 
         @keyframes blink {
@@ -145,187 +152,311 @@
                 top: 0;
                 bottom: 0;
                 left: 50%;
-                width: 4px;
-                background-color: var(--red);
+                width: 3px;
+                background: linear-gradient(180deg, #2563eb 0%, #dc2626 100%);
                 transform: translateX(-50%);
             }
         }
 
         .cert-iframe {
-            pointer-events: none; /* Prevent interacting with PDF directly inside card */
-        }
-        
-        /* Progress Circle */
-        .progress-ring__circle {
-            transition: stroke-dashoffset 1s ease-in-out;
-            transform: rotate(-90deg);
-            transform-origin: 50% 50%;
+            pointer-events: none;
         }
 
         /* Animations */
         .animate-on-scroll {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            transform: translateY(28px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .animate-on-scroll.is-visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Custom Project Filter Active State */
+        .filter-btn.active {
+            background: #1a3a6b;
+            color: #ffffff;
+            box-shadow: 0 4px 14px 0 rgba(26, 58, 107, 0.35);
         }
     </style>
 
     <!-- External Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="antialiased scroll-smooth">
+<body class="antialiased scroll-smooth selection:bg-brand-red selection:text-white">
 
-    <!-- Navbar -->
-    <nav class="fixed w-full z-50 glass-card px-6 py-4 flex flex-wrap justify-between items-center top-0 transition-all duration-300">
-        <a href="#landing" class="flex items-center gap-2 text-brand-dark font-heading font-bold text-xl">
-            <img src="assets/profile/sl_logo.png" alt="SL Logo" class="nav-logo-img h-10 w-auto">
+    <!-- Top Executive Announcement Bar -->
+    <div class="bg-gradient-to-r from-brand-dark via-slate-900 to-brand-blue text-slate-300 text-xs py-2 px-4 text-center border-b border-white/10 hidden sm:block">
+        <span class="inline-flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="font-medium text-white">Targeting High MNC & Enterprise Commercial / Analytics Roles</span>
+            <span class="text-slate-500">|</span>
+            <span class="text-blue-300 font-semibold">Unilever FMCG Alum</span>
+            <span class="text-slate-500">|</span>
+            <span class="text-red-300 font-semibold">Globsyn MBA Candidate</span>
+            <span class="text-slate-500">|</span>
+            <a href="#experience" class="underline hover:text-white transition-colors ml-1">View Credentials &rarr;</a>
+        </span>
+    </div>
+
+    <!-- Executive Navigation Bar -->
+    <nav class="fixed w-full z-50 glass-card px-6 py-3.5 flex flex-wrap justify-between items-center top-0 transition-all duration-300 border-b border-slate-200/80">
+        <!-- Modern Executive Monogram Brand (No Old SL Logo) -->
+        <a href="#landing" class="flex items-center gap-3 text-brand-dark font-heading font-bold text-xl group">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-blue via-brand-light to-brand-red flex items-center justify-center text-white font-extrabold text-base shadow-md group-hover:scale-105 transition-transform">
+                SL
+            </div>
+            <div class="flex flex-col">
+                <span class="text-base font-extrabold text-slate-900 group-hover:text-brand-blue transition-colors leading-none tracking-tight">
+                    Shidulla <span class="text-brand-red">Laskar</span>
+                </span>
+                <span class="text-[10px] text-gray-500 font-medium tracking-wider uppercase mt-1">
+                    Commercial Strategy & BI
+                </span>
+            </div>
         </a>
-        <div class="hidden md:flex space-x-6 text-sm font-semibold text-brand-dark items-center">
+
+        <!-- Desktop Nav Links -->
+        <div class="hidden lg:flex space-x-6 text-sm font-semibold text-slate-700 items-center">
             <a href="#about" class="hover:text-brand-red transition-colors">About</a>
-            <a href="#experience" class="hover:text-brand-red transition-colors">Experience</a>
-            <a href="#education" class="hover:text-brand-red transition-colors">Education</a>
-            <a href="#projects" class="hover:text-brand-red transition-colors">Projects</a>
-            <a href="#blog" class="hover:text-brand-red transition-colors">Blog</a>
+            <a href="#experience" class="hover:text-brand-red transition-colors flex items-center gap-1.5">
+                Experience
+                <span class="text-[10px] bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded font-bold">Unilever</span>
+            </a>
+            <a href="#projects" class="hover:text-brand-red transition-colors flex items-center gap-1.5">
+                Projects
+                <span class="text-[10px] bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-bold">GitHub</span>
+            </a>
             <a href="#skills" class="hover:text-brand-red transition-colors">Skills</a>
+            <a href="#education" class="hover:text-brand-red transition-colors">Education</a>
             <a href="#certifications" class="hover:text-brand-red transition-colors">Certifications</a>
             <a href="#achievements" class="hover:text-brand-red transition-colors">Achievements</a>
-            <a href="#contact" class="bg-brand-red text-white px-5 py-2 rounded-full font-semibold hover:bg-red-700 transition-colors shadow-lg shadow-red-500/30 ml-4">Let's Talk</a>
+            <a href="#contact" class="bg-gradient-to-r from-brand-blue to-brand-light text-white px-5 py-2 rounded-full font-semibold hover:from-blue-700 hover:to-blue-800 transition-all shadow-md hover:shadow-blue-500/25 ml-2">
+                Get In Touch
+            </a>
         </div>
-        <button id="mobile-menu-btn" class="md:hidden text-2xl text-brand-dark"><i class="fas fa-bars"></i></button>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="lg:hidden text-2xl text-brand-dark p-1 focus:outline-none" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
         
         <!-- Mobile Dropdown -->
-        <div id="mobile-menu" class="hidden w-full mt-4 flex-col space-y-4 text-center pb-4 text-brand-dark font-semibold shadow-inner rounded-b-xl border-t border-gray-200">
-            <a href="#about" class="block hover:text-brand-red transition-colors pt-4">About</a>
-            <a href="#experience" class="block hover:text-brand-red transition-colors">Experience</a>
-            <a href="#education" class="block hover:text-brand-red transition-colors">Education</a>
-            <a href="#projects" class="block hover:text-brand-red transition-colors">Projects</a>
-            <a href="#blog" class="block hover:text-brand-red transition-colors">Blog</a>
+        <div id="mobile-menu" class="hidden w-full mt-4 flex-col space-y-3 text-center pb-4 text-brand-dark font-semibold shadow-inner rounded-b-xl border-t border-gray-200">
+            <a href="#about" class="block hover:text-brand-red transition-colors pt-3">About</a>
+            <a href="#experience" class="block hover:text-brand-red transition-colors">Experience (Unilever & Landmark)</a>
+            <a href="#projects" class="block hover:text-brand-red transition-colors">Projects (GitHub & BI)</a>
             <a href="#skills" class="block hover:text-brand-red transition-colors">Skills</a>
+            <a href="#education" class="block hover:text-brand-red transition-colors">Education</a>
             <a href="#certifications" class="block hover:text-brand-red transition-colors">Certifications</a>
             <a href="#achievements" class="block hover:text-brand-red transition-colors">Achievements</a>
-            <a href="#contact" class="inline-block bg-brand-red text-white px-6 py-2 rounded-full font-semibold hover:bg-red-700 mt-2">Let's Talk</a>
+            <a href="#contact" class="inline-block bg-brand-red text-white px-6 py-2 rounded-full font-semibold hover:bg-red-700 mt-2">Get In Touch</a>
         </div>
     </nav>
-    <script>
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            var menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-            menu.classList.toggle('flex');
-        });
-        document.querySelectorAll('#mobile-menu a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                var menu = document.getElementById('mobile-menu');
-                menu.classList.add('hidden');
-                menu.classList.remove('flex');
-            });
-        });
-    </script>
 
-    <!-- SECTION 1 — LANDING (#landing) -->
-    <section id="landing" class="relative min-h-screen flex items-center justify-center mesh-bg text-white overflow-hidden pt-20">
-        <!-- Geometric Shapes -->
-        <svg class="floating-shape w-64 h-64 top-20 left-10 text-brand-redLight" viewBox="0 0 100 100" fill="currentColor" style="animation-delay: 0s;">
+    <!-- SECTION 1 — HERO / LANDING (#landing) -->
+    <section id="landing" class="relative min-h-screen flex items-center justify-center mesh-bg text-white overflow-hidden pt-28 pb-16">
+        <!-- Floating Shapes -->
+        <svg class="floating-shape w-72 h-72 top-20 left-10 text-brand-redLight" viewBox="0 0 100 100" fill="currentColor" style="animation-delay: 0s;">
             <circle cx="50" cy="50" r="40" opacity="0.3"/>
         </svg>
-        <svg class="floating-shape w-48 h-48 bottom-20 right-20 text-brand-accent" viewBox="0 0 100 100" fill="currentColor" style="animation-delay: 2s;">
-            <polygon points="50,15 90,85 10,85" opacity="0.3"/>
+        <svg class="floating-shape w-56 h-56 bottom-20 right-16 text-brand-accent" viewBox="0 0 100 100" fill="currentColor" style="animation-delay: 2.5s;">
+            <polygon points="50,15 90,85 10,85" opacity="0.25"/>
         </svg>
-        <svg class="floating-shape w-32 h-32 top-1/2 right-1/4 text-white" viewBox="0 0 100 100" fill="currentColor" style="animation-delay: 4s;">
-            <rect x="20" y="20" width="60" height="60" rx="10" opacity="0.2" transform="rotate(45 50 50)"/>
+        <svg class="floating-shape w-40 h-40 top-1/2 right-1/4 text-white" viewBox="0 0 100 100" fill="currentColor" style="animation-delay: 4.5s;">
+            <rect x="20" y="20" width="60" height="60" rx="12" opacity="0.15" transform="rotate(45 50 50)"/>
         </svg>
 
-        <div class="relative z-10 container mx-auto px-6 text-center flex flex-col items-center">
-            <img src="assets/profile/sl_logo.png" class="hero-logo h-24 mb-6 shadow-2xl rounded-full" alt="SL">
+        <div class="relative z-10 container mx-auto px-6 text-center flex flex-col items-center max-w-5xl">
             
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 font-heading tracking-tight drop-shadow-lg">Shidulla Laskar</h1>
+            <!-- Corporate Status Badge Pill -->
+            <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-slate-900/80 border border-blue-400/30 text-xs md:text-sm font-semibold tracking-wide text-slate-200 mb-6 shadow-xl backdrop-blur-md">
+                <span class="relative flex h-2.5 w-2.5">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                </span>
+                <span class="font-medium text-slate-300">Targeting High MNC & Enterprise Roles</span>
+                <span class="text-slate-600">|</span>
+                <span class="text-red-400 font-bold">Unilever Alum</span>
+                <span class="text-slate-600">|</span>
+                <span class="text-blue-300 font-semibold">MBA (Marketing & IB)</span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold mb-4 font-heading tracking-tight drop-shadow-xl text-white">
+                Shidulla Laskar
+            </h1>
             
-            <h2 class="text-base md:text-2xl font-medium mb-8 text-brand-redAccent min-h-[4rem] md:min-h-8">
-                <span class="typing-text" id="typewriter">Digital Marketing & Web Development Consultant | MBA Candidate — Marketing & International Business | Founder, MetricFlow Consulting</span>
+            <!-- Dynamic Rotating Typewriter Subtitle -->
+            <h2 class="text-base sm:text-xl md:text-2xl font-medium mb-8 text-brand-redAccent min-h-[3.5rem] flex items-center justify-center">
+                <span id="typewriter" class="typing-cursor font-heading tracking-wide">Commercial Strategy & Enterprise Business Intelligence</span>
             </h2>
             
-            <p class="max-w-3xl mx-auto text-base md:text-lg text-gray-300 leading-relaxed mb-10 text-justify md:text-center glass-card-dark p-6 rounded-2xl border-t border-l border-white/20">
-                I am Shidulla Laskar, a Marketing &amp; International Business MBA candidate and the Founder of MetricFlow Consulting, a boutique digital marketing and e-commerce consultancy. I blend hands-on IT, web development, and data analytics experience with advanced business training to build strategies that deliver measurable growth. My work spans SEO-optimized website builds, Google Ads and Meta campaign management, and Power BI/Google Analytics-driven performance reporting for B2B and B2C clients. During my retail internship at Max Fashion &amp; Lifestyle, I was recognized as Best Performer of the Month after driving over ₹15 lakh in sales. I'm driven by a relentless work ethic, a passion for AI-powered innovation, and a belief that disciplined execution turns ambitious goals into real results. Let's connect and build something impactful together.
-            </p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 mb-12">
-                <a href="#about" class="bg-gradient-to-r from-brand-blue to-brand-light text-white px-8 py-3 rounded-full font-semibold hover:scale-105 transition-transform shadow-lg shadow-blue-500/50">Learn More About Me</a>
-                <a href="#contact" class="bg-gradient-to-r from-brand-red to-brand-redLight text-white px-8 py-3 rounded-full font-semibold hover:scale-105 transition-transform shadow-lg shadow-red-500/50">Get In Touch</a>
+            <!-- Executive Pitch for MNC Leadership -->
+            <div class="max-w-4xl mx-auto text-base sm:text-lg text-slate-300 leading-relaxed mb-10 text-left sm:text-center glass-card-dark p-6 sm:p-8 rounded-2xl border border-white/15 shadow-2xl">
+                <p class="mb-3">
+                    High-impact <strong class="text-white font-semibold">Commercial Strategist</strong> and <strong class="text-white font-semibold">Enterprise Technologist</strong> combining hands-on Fortune 500 FMCG experience at <span class="text-blue-300 font-bold underline decoration-blue-500/50">Unilever</span> with data engineering and MBA-level business acumen. Recognized as <strong class="text-red-300 font-semibold">Best Performer of the Month</strong> at Landmark Group (Max Fashion) driving <span class="text-white font-bold">₹15 Lakh+</span> in retail turnover.
+                </p>
+                <p class="text-sm sm:text-base text-slate-300">
+                    Architect of production-grade systems including vectorized <strong class="text-white">DuckDB AI Decision Support</strong>, fault-tolerant <strong class="text-white">RevOps Pipelines with Dead-Letter Queues (DLQ)</strong>, and B2B SaaS growth platforms. Published researcher on <em class="text-blue-200">AI in Global Supply Chain Resilience</em> at the 10th International Globsyn Management Conference. Ready to drive scalable revenue, operational clarity, and quantifiable ROI for high-growth global enterprises.
+                </p>
             </div>
             
-            <div class="flex gap-6 text-2xl">
-                <a href="https://github.com/shidullalaskar93-coder" target="_blank" class="text-white hover:text-brand-redAccent transition-colors"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/shidulla-gbs" target="_blank" class="text-white hover:text-brand-redAccent transition-colors"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:shidullalaskar93@gmail.com" class="text-white hover:text-brand-redAccent transition-colors"><i class="fas fa-envelope"></i></a>
+            <!-- Strategic Action Buttons -->
+            <div class="flex flex-wrap justify-center gap-4 mb-10 w-full max-w-2xl">
+                <a href="#projects" class="bg-gradient-to-r from-brand-blue to-brand-light text-white px-7 py-3.5 rounded-full font-bold text-sm hover:scale-105 transition-all shadow-lg shadow-blue-500/30 flex items-center gap-2">
+                    <i class="fas fa-layer-group"></i> Explore Enterprise Projects
+                </a>
+                <a href="#experience" class="bg-gradient-to-r from-brand-red to-brand-redLight text-white px-7 py-3.5 rounded-full font-bold text-sm hover:scale-105 transition-all shadow-lg shadow-red-500/30 flex items-center gap-2">
+                    <i class="fas fa-briefcase"></i> View MNC Experience
+                </a>
+                <a href="https://github.com/shidullalaskar93-coder" target="_blank" class="bg-slate-800/90 hover:bg-slate-700 text-white border border-white/20 px-6 py-3.5 rounded-full font-semibold text-sm hover:scale-105 transition-all flex items-center gap-2 shadow-md">
+                    <i class="fab fa-github text-base"></i> GitHub Codebase
+                </a>
+            </div>
+            
+            <!-- Quick Social Proof Icons -->
+            <div class="flex items-center gap-6 text-xl text-slate-400">
+                <a href="https://www.linkedin.com/in/shidulla-gbs" target="_blank" class="hover:text-white transition-colors" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/shidullalaskar93-coder" target="_blank" class="hover:text-white transition-colors" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="mailto:shidullalaskar93@gmail.com" class="hover:text-white transition-colors" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+919859061440" class="hover:text-white transition-colors" title="Phone"><i class="fas fa-phone-alt"></i></a>
             </div>
         </div>
 
-        <a href="#about" class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce text-2xl">
+        <!-- Scroll Indicator -->
+        <a href="#trust-bar" class="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-white/70 hover:text-white animate-bounce text-xl" aria-label="Scroll down">
             <i class="fas fa-chevron-down"></i>
         </a>
     </section>
+
+    <!-- ENTERPRISE CREDENTIALS & TRUST BAR (MNC Credibility) -->
+    <div id="trust-bar" class="bg-slate-900 border-y border-white/10 py-8 relative z-20">
+        <div class="container mx-auto px-6">
+            <p class="text-center text-xs font-semibold uppercase tracking-widest text-slate-400 mb-6">
+                Trained, Proven & Academic Credentials Recognized By
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-6 items-center justify-items-center">
+                <!-- Unilever -->
+                <div class="flex items-center gap-3 text-white font-heading font-bold text-base tracking-wider hover:text-blue-400 transition-colors">
+                    <span class="w-10 h-10 rounded-xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-blue-400 font-extrabold text-xl shadow-inner">U</span>
+                    <div class="text-left leading-tight">
+                        <span class="block text-sm font-extrabold">UNILEVER</span>
+                        <span class="text-[10px] text-slate-400 font-normal">FMCG Commercial Intern</span>
+                    </div>
+                </div>
+                <!-- Landmark Group / Max Fashion -->
+                <div class="flex items-center gap-3 text-white font-heading font-bold text-base tracking-wider hover:text-red-400 transition-colors">
+                    <span class="w-10 h-10 rounded-xl bg-red-600/20 border border-red-500/40 flex items-center justify-center text-red-400 shadow-inner"><i class="fas fa-award text-base"></i></span>
+                    <div class="text-left leading-tight">
+                        <span class="block text-sm font-extrabold">MAX FASHION</span>
+                        <span class="text-[10px] text-slate-400 font-normal">Landmark · Best Performer</span>
+                    </div>
+                </div>
+                <!-- Globsyn Business School -->
+                <div class="flex items-center gap-3 text-white font-heading font-bold text-base tracking-wider hover:text-indigo-400 transition-colors">
+                    <span class="w-10 h-10 rounded-xl bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center text-indigo-400 shadow-inner"><i class="fas fa-graduation-cap text-base"></i></span>
+                    <div class="text-left leading-tight">
+                        <span class="block text-sm font-extrabold">GLOBSYN</span>
+                        <span class="text-[10px] text-slate-400 font-normal">MBA Marketing & IB</span>
+                    </div>
+                </div>
+                <!-- Assam University -->
+                <div class="flex items-center gap-3 text-white font-heading font-bold text-base tracking-wider hover:text-sky-400 transition-colors">
+                    <span class="w-10 h-10 rounded-xl bg-sky-600/20 border border-sky-500/40 flex items-center justify-center text-sky-400 shadow-inner"><i class="fas fa-university text-base"></i></span>
+                    <div class="text-left leading-tight">
+                        <span class="block text-sm font-extrabold">ASSAM UNIV</span>
+                        <span class="text-[10px] text-slate-400 font-normal">B.A. (75.9%) & CIT Diploma</span>
+                    </div>
+                </div>
+                <!-- NPTEL Elite -->
+                <div class="flex items-center gap-3 text-white font-heading font-bold text-base tracking-wider hover:text-amber-400 transition-colors col-span-2 md:col-span-1">
+                    <span class="w-10 h-10 rounded-xl bg-amber-600/20 border border-amber-500/40 flex items-center justify-center text-amber-400 shadow-inner"><i class="fas fa-medal text-base"></i></span>
+                    <div class="text-left leading-tight">
+                        <span class="block text-sm font-extrabold">NPTEL ELITE</span>
+                        <span class="text-[10px] text-slate-400 font-normal">75/75 AI for Management</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- SECTION 2 — ABOUT ME (#about) -->
     <section id="about" class="py-24 bg-white relative">
         <div class="container mx-auto px-6">
             <div class="mb-16 text-center animate-on-scroll">
-                <h2 class="text-4xl font-extrabold font-heading text-brand-dark inline-block relative">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-blue bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200">
+                    Executive Profile
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 mt-3 inline-block relative">
                     About Me
                     <span class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-1.5 bg-brand-red rounded-full"></span>
                 </h2>
+                <p class="text-slate-600 max-w-2xl mx-auto mt-4 text-base">
+                    Bridging Fortune 500 commercial operations, strategic marketing, and technical software engineering.
+                </p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-7 animate-on-scroll text-lg text-gray-700 leading-relaxed space-y-6">
+                <div class="lg:col-span-7 animate-on-scroll text-base sm:text-lg text-slate-700 leading-relaxed space-y-5">
                     <p>
-                        I'm a self-made Marketing and International Business professional currently pursuing my MBA at Globsyn Business School, with a unique cross-functional foundation in IT, web development, and data analytics. As the Founder of MetricFlow Consulting, I design and launch SEO-optimized WordPress websites, run performance marketing campaigns, and deliver data-backed strategy for B2B and B2C clients. I'm proficient in Python, SQL, Power BI, Excel, and Google Analytics, which lets me turn raw data into actionable business insight rather than guesswork.
+                        I am an <strong class="text-slate-900">MBA Candidate in Marketing & International Business</strong> at Globsyn Business School with a distinctive cross-functional background in IT systems, data analytics, and commercial execution. My journey bridges the field-level realities of retail customer acquisition with the engineering rigor of enterprise AI decision support systems.
                     </p>
                     <p>
-                        My retail internship at Max Fashion & Lifestyle sharpened my customer relationship management and sales leadership skills, earning me Best Performer of the Month honors. I've also presented original research on AI integration in global supply chains at an international management conference. What sets me apart is the combination of technical fluency and business strategy — I don't just recommend a marketing plan, I can build the website, track the analytics, and execute the campaign myself. I thrive in fast-paced, high-stakes environments that demand adaptability, grit, and continuous learning.
+                        At <strong class="text-blue-700">Unilever</strong>, I spearheaded on-ground FMCG product activation, managed shelf visibility and planograms, and analyzed point-of-sale SKU velocity to generate replenishment recommendations. At <strong class="text-red-700">Landmark Group (Max Fashion)</strong>, I earned <em>Best Performer of the Month</em> honors after personally driving over ₹15 Lakh in retail turnover and onboarding new university interns onto omnichannel sales systems.
+                    </p>
+                    <p>
+                        Beyond commercial sales, I build production-grade technology. My GitHub showcases an <strong class="text-slate-900">AI-Powered Decision Support System</strong> with DuckDB OLAP and Gemini LLM, a fault-tolerant <strong class="text-slate-900">RevOps Inbound Lead Pipeline</strong> with Dead-Letter Queue safeguards, and a full-stack B2B SaaS platform. What sets me apart for global MNCs is this rare synergy: <em>I don't just recommend a growth strategy — I can model the data, architect the automation pipeline, and execute the commercial campaign.</em>
                     </p>
                     
-                    <div class="flex flex-wrap gap-4 pt-4">
-                        <a href="#experience" class="text-sm font-semibold border-2 border-brand-blue text-brand-blue px-4 py-2 rounded-lg hover:bg-brand-blue hover:text-white transition-colors">Work Experience</a>
-                        <a href="#education" class="text-sm font-semibold border-2 border-brand-blue text-brand-blue px-4 py-2 rounded-lg hover:bg-brand-blue hover:text-white transition-colors">Education</a>
-                        <a href="#projects" class="text-sm font-semibold border-2 border-brand-blue text-brand-blue px-4 py-2 rounded-lg hover:bg-brand-blue hover:text-white transition-colors">Projects</a>
-                        <a href="#skills" class="text-sm font-semibold border-2 border-brand-blue text-brand-blue px-4 py-2 rounded-lg hover:bg-brand-blue hover:text-white transition-colors">Skills</a>
-                        <a href="#certifications" class="text-sm font-semibold border-2 border-brand-blue text-brand-blue px-4 py-2 rounded-lg hover:bg-brand-blue hover:text-white transition-colors">Certifications</a>
+                    <div class="flex flex-wrap gap-3 pt-3">
+                        <a href="#experience" class="text-xs sm:text-sm font-semibold border-2 border-brand-blue text-brand-blue px-4 py-2 rounded-lg hover:bg-brand-blue hover:text-white transition-colors">
+                            <i class="fas fa-briefcase mr-1.5"></i> MNC Experience
+                        </a>
+                        <a href="#projects" class="text-xs sm:text-sm font-semibold border-2 border-brand-red text-brand-red px-4 py-2 rounded-lg hover:bg-brand-red hover:text-white transition-colors">
+                            <i class="fas fa-code mr-1.5"></i> GitHub Projects
+                        </a>
+                        <a href="#skills" class="text-xs sm:text-sm font-semibold border-2 border-slate-700 text-slate-700 px-4 py-2 rounded-lg hover:bg-slate-700 hover:text-white transition-colors">
+                            <i class="fas fa-cogs mr-1.5"></i> Core Competencies
+                        </a>
+                        <a href="#certifications" class="text-xs sm:text-sm font-semibold border-2 border-slate-700 text-slate-700 px-4 py-2 rounded-lg hover:bg-slate-700 hover:text-white transition-colors">
+                            <i class="fas fa-certificate mr-1.5"></i> 27 Certifications
+                        </a>
                     </div>
                 </div>
 
                 <div class="lg:col-span-5 animate-on-scroll relative">
-                    <!-- Creative Frame -->
-                    <div class="relative w-72 h-72 sm:w-96 sm:h-96 mx-auto">
+                    <!-- Creative Executive Photo Frame -->
+                    <div class="relative w-64 h-64 sm:w-80 sm:h-80 mx-auto">
                         <div class="absolute inset-0 bg-brand-red rounded-3xl transform rotate-6 scale-105 opacity-20"></div>
                         <div class="absolute inset-0 bg-brand-blue rounded-3xl transform -rotate-3 scale-105"></div>
-                        <img src="assets/profile/shidulla.jpg.png" alt="Shidulla Laskar" class="about-photo-img relative z-10 w-full h-full object-cover rounded-3xl shadow-xl border-4 border-white">
+                        <img src="assets/profile/shidulla.jpg.png" alt="Shidulla Laskar" class="about-photo-img relative z-10 w-full h-full object-cover rounded-3xl shadow-2xl border-4 border-white">
                         
-                        <!-- Floating Glass Cards -->
-                        <div class="absolute -bottom-4 -left-4 md:-bottom-10 md:-left-10 w-36 h-24 md:w-48 md:h-32 flip-card z-20">
+                        <!-- Floating Glass Mission Card -->
+                        <div class="absolute -bottom-4 -left-4 sm:-bottom-8 sm:-left-8 w-36 h-24 sm:w-44 sm:h-28 flip-card z-20">
                             <div class="flip-card-inner w-full h-full relative">
-                                <div class="flip-card-front glass-card w-full h-full absolute rounded-xl p-4 flex flex-col justify-center items-center text-center">
-                                    <i class="fas fa-bullseye text-2xl text-brand-red mb-2"></i>
-                                    <h4 class="font-bold text-brand-dark text-sm">My Mission</h4>
-                                    <p class="text-[10px] text-gray-500 mt-1">Hover to view</p>
+                                <div class="flip-card-front glass-card w-full h-full absolute rounded-xl p-3 flex flex-col justify-center items-center text-center shadow-lg">
+                                    <i class="fas fa-bullseye text-xl text-brand-red mb-1"></i>
+                                    <h4 class="font-bold text-slate-900 text-xs">My Mission</h4>
+                                    <p class="text-[9px] text-slate-500">Hover to reveal</p>
                                 </div>
-                                <div class="flip-card-back glass-card w-full h-full absolute rounded-xl p-3 flex items-center justify-center bg-brand-dark text-white border-brand-red">
-                                    <p class="text-xs leading-tight">To help businesses grow with clarity — turning data, digital strategy, and technology into measurable, sustainable results.</p>
+                                <div class="flip-card-back glass-card w-full h-full absolute rounded-xl p-2.5 flex items-center justify-center bg-slate-900 text-white border-brand-red shadow-lg">
+                                    <p class="text-[11px] leading-tight text-center">Drive enterprise growth by engineering clear data pipelines and executing disciplined commercial strategy.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="absolute -top-4 -right-4 md:-top-10 md:-right-10 w-36 h-24 md:w-48 md:h-32 flip-card z-20">
+                        <!-- Floating Glass Vision Card -->
+                        <div class="absolute -top-4 -right-4 sm:-top-8 sm:-right-8 w-36 h-24 sm:w-44 sm:h-28 flip-card z-20">
                             <div class="flip-card-inner w-full h-full relative">
-                                <div class="flip-card-front glass-card w-full h-full absolute rounded-xl p-4 flex flex-col justify-center items-center text-center">
-                                    <i class="fas fa-eye text-2xl text-brand-blue mb-2"></i>
-                                    <h4 class="font-bold text-brand-dark text-sm">My Vision</h4>
-                                    <p class="text-[10px] text-gray-500 mt-1">Hover to view</p>
+                                <div class="flip-card-front glass-card w-full h-full absolute rounded-xl p-3 flex flex-col justify-center items-center text-center shadow-lg">
+                                    <i class="fas fa-globe text-xl text-brand-blue mb-1"></i>
+                                    <h4 class="font-bold text-slate-900 text-xs">My Vision</h4>
+                                    <p class="text-[9px] text-slate-500">Hover to reveal</p>
                                 </div>
-                                <div class="flip-card-back glass-card w-full h-full absolute rounded-xl p-3 flex items-center justify-center bg-brand-red text-white">
-                                    <p class="text-xs leading-tight">To become a trusted bridge between marketing strategy and technology, building a consultancy and career defined by integrity, innovation, and impact.</p>
+                                <div class="flip-card-back glass-card w-full h-full absolute rounded-xl p-2.5 flex items-center justify-center bg-brand-blue text-white shadow-lg">
+                                    <p class="text-[11px] leading-tight text-center">To lead cross-border marketing and revenue operations across Fortune 500 multinationals.</p>
                                 </div>
                             </div>
                         </div>
@@ -336,92 +467,158 @@
     </section>
 
     <!-- SECTION 3 — WORK EXPERIENCE (#experience) -->
-    <section id="experience" class="py-24 bg-gray-50 relative overflow-hidden">
+    <section id="experience" class="py-24 bg-slate-50 relative overflow-hidden border-t border-slate-200">
         <div class="container mx-auto px-6 relative z-10">
             <div class="mb-16 text-center animate-on-scroll">
-                <h2 class="text-4xl font-extrabold font-heading text-brand-dark inline-block relative">
-                    Work Experience
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-red bg-red-50 px-3.5 py-1.5 rounded-full border border-red-200">
+                    Track Record & Execution
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 mt-3 inline-block relative">
+                    Professional Experience
                     <span class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-1.5 bg-brand-red rounded-full"></span>
                 </h2>
+                <p class="text-slate-600 max-w-2xl mx-auto mt-4 text-base">
+                    Hands-on commercial operations across Global FMCG, Retail conglomerates, and strategic technology consulting.
+                </p>
             </div>
 
-            <div class="relative timeline-line max-w-5xl mx-auto py-10">
+            <div class="relative timeline-line max-w-5xl mx-auto py-6">
                 
-                <!-- Card 1 -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group mb-12 animate-on-scroll">
+                <!-- Experience 1: UNILEVER (Flagship Global MNC Internship) -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group mb-14 animate-on-scroll">
                     <!-- Marker -->
-                    <div class="hidden md:flex w-10 h-10 rounded-full bg-brand-red border-4 border-white shadow-lg absolute left-1/2 transform -translate-x-1/2 z-10 flex items-center justify-center group-hover:scale-125 transition-transform">
-                        <i class="fas fa-briefcase text-white text-sm"></i>
+                    <div class="hidden md:flex w-12 h-12 rounded-full bg-blue-700 border-4 border-white shadow-xl absolute left-1/2 transform -translate-x-1/2 z-10 items-center justify-center group-hover:scale-125 transition-transform">
+                        <span class="text-white font-extrabold text-base">U</span>
                     </div>
-                    <!-- Content -->
-                    <div class="w-full md:w-[calc(50%-2.5rem)] glass-card p-6 rounded-2xl shadow-lg border-l-4 border-l-brand-blue hover:-translate-y-2 transition-transform duration-300">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-bold font-heading text-brand-dark">Founder, MetricFlow Consulting</h3>
-                            <span class="bg-brand-blue text-white text-xs px-2 py-1 rounded-md font-semibold">Jan 2026 – Present</span>
+                    <!-- Card Content -->
+                    <div class="w-full md:w-[calc(50%-2.5rem)] glass-card p-6 sm:p-7 rounded-2xl shadow-xl border-l-4 border-l-blue-600 hover:-translate-y-2 transition-transform duration-300">
+                        <div class="flex justify-between items-start flex-wrap gap-2 mb-2">
+                            <div>
+                                <h3 class="text-xl font-bold font-heading text-slate-900">Brand Promoter</h3>
+                                <p class="text-sm font-semibold text-blue-700">Unilever &middot; Internship</p>
+                            </div>
+                            <span class="bg-blue-600 text-white text-xs px-2.5 py-1 rounded-md font-bold shadow-sm">
+                                Oct 2026 &middot; 1 mo
+                            </span>
                         </div>
-                        <p class="text-sm text-brand-red font-medium mb-4"><i class="fas fa-map-marker-alt mr-1"></i> Business Owner / Full-time | Kolkata</p>
-                        <h4 class="text-sm font-bold text-gray-800 mb-2">Responsibilities:</h4>
-                        <ul class="text-sm text-gray-600 list-disc list-inside mb-4 space-y-1">
-                            <li>Design and launch SEO-optimized, responsive WordPress websites for business clients</li>
-                            <li>Plan and execute Google Ads & Meta ad campaigns for B2B/B2C clients</li>
-                            <li>Deliver Power BI & Google Analytics performance reports for data-driven decisions</li>
-                            <li>Lead B2B sales outreach, proposals, and client onboarding</li>
+                        <p class="text-xs text-slate-500 font-medium mb-4 flex items-center gap-1.5">
+                            <i class="fas fa-map-marker-alt text-brand-red"></i> Kolkata, West Bengal, India &middot; On-site
+                            <span class="ml-2 inline-block bg-blue-50 text-blue-700 font-semibold px-2 py-0.5 rounded text-[10px] border border-blue-200">
+                                Fortune 500 FMCG
+                            </span>
+                        </p>
+                        
+                        <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">Key Responsibilities & Impact:</h4>
+                        <ul class="text-sm text-slate-600 list-disc list-inside mb-4 space-y-2">
+                            <li><strong class="text-slate-800">FMCG Brand Visibility & Customer Engagement:</strong> Promoted Unilever FMCG products across high-traffic retail touchpoints, actively engaging consumers to accelerate on-ground sales conversions and elevate brand equity.</li>
+                            <li><strong class="text-slate-800">Product Demonstrations & Consumer Education:</strong> Articulated and demonstrated core product features and value propositions, boosting consumer understanding, trial adoption, and purchase intent.</li>
+                            <li><strong class="text-slate-800">Merchandising & Shelf Presence:</strong> Maintained visual merchandising standards, planogram compliance, and optimal shelf space visibility to maximize impulse purchasing over competitor brands.</li>
+                            <li><strong class="text-slate-800">POS Sales Velocity Analytics & Stock Reporting:</strong> Analyzed daily sales to evaluate SKU velocity, identify best sellers vs. slow movers, proactively detected potential stock-out risks, and prepared analytical reports with inventory replenishment recommendations.</li>
                         </ul>
-                        <h4 class="text-sm font-bold text-gray-800 mb-2">Achievements:</h4>
-                        <ul class="text-sm text-gray-600 list-disc list-inside space-y-1">
-                            <li>Secured web development and marketing retainers through targeted client proposals</li>
-                            <li>Reduced client cost-per-acquisition through structured A/B testing of ad creatives</li>
-                        </ul>
+                        
+                        <div class="flex flex-wrap gap-1.5 pt-2 border-t border-slate-100">
+                            <span class="text-[11px] font-semibold bg-blue-50 text-blue-700 px-2 py-0.5 rounded">FMCG Strategy</span>
+                            <span class="text-[11px] font-semibold bg-blue-50 text-blue-700 px-2 py-0.5 rounded">Brand Promotion</span>
+                            <span class="text-[11px] font-semibold bg-blue-50 text-blue-700 px-2 py-0.5 rounded">Sales Velocity Analytics</span>
+                            <span class="text-[11px] font-semibold bg-blue-50 text-blue-700 px-2 py-0.5 rounded">Planogram & Merchandising</span>
+                            <span class="text-[11px] font-semibold bg-blue-50 text-blue-700 px-2 py-0.5 rounded">Inventory Reporting</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group mb-12 animate-on-scroll">
-                    <div class="w-10 h-10 rounded-full bg-brand-blue border-4 border-white shadow-lg absolute left-1/2 transform -translate-x-1/2 z-10 flex items-center justify-center group-hover:scale-125 transition-transform">
-                        <i class="fas fa-star text-white text-sm"></i>
+                <!-- Experience 2: MAX FASHION & LIFESTYLE (Landmark Group) -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group mb-14 animate-on-scroll">
+                    <div class="hidden md:flex w-12 h-12 rounded-full bg-brand-red border-4 border-white shadow-xl absolute left-1/2 transform -translate-x-1/2 z-10 items-center justify-center group-hover:scale-125 transition-transform">
+                        <i class="fas fa-trophy text-white text-sm"></i>
                     </div>
-                    <div class="w-full md:w-[calc(50%-2.5rem)] glass-card p-6 rounded-2xl shadow-lg border-l-4 border-l-brand-red hover:-translate-y-2 transition-transform duration-300">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-bold font-heading text-brand-dark">Customer Assistant, Max Fashion & Lifestyle</h3>
-                            <span class="bg-brand-red text-white text-xs px-2 py-1 rounded-md font-semibold">Summer 2026</span>
+                    <div class="w-full md:w-[calc(50%-2.5rem)] glass-card p-6 sm:p-7 rounded-2xl shadow-xl border-l-4 border-l-brand-red hover:-translate-y-2 transition-transform duration-300">
+                        <div class="flex justify-between items-start flex-wrap gap-2 mb-2">
+                            <div>
+                                <h3 class="text-xl font-bold font-heading text-slate-900">Customer Assistant</h3>
+                                <p class="text-sm font-semibold text-brand-red">Max Fashion & Lifestyle &middot; Landmark Group</p>
+                            </div>
+                            <span class="bg-brand-red text-white text-xs px-2.5 py-1 rounded-md font-bold shadow-sm">
+                                Summer 2026 &middot; 12 wks
+                            </span>
                         </div>
-                        <p class="text-sm text-brand-blue font-medium mb-4"><i class="fas fa-map-marker-alt mr-1"></i> Internship | Rajarhat, Kolkata | 12 weeks</p>
-                        <h4 class="text-sm font-bold text-gray-800 mb-2">Responsibilities:</h4>
-                        <ul class="text-sm text-gray-600 list-disc list-inside mb-4 space-y-1">
-                            <li>Managed Indian Women Wear and Western Women Wear departments</li>
-                            <li>Tracked personal daily performance metrics (units, bills, NPS, memberships, E-Sell)</li>
-                            <li>Delivered ESell training to store staff and onboarded new interns</li>
-                            <li>Independently managed the department during senior staff absences (10+ occasions)</li>
+                        <p class="text-xs text-slate-500 font-medium mb-4 flex items-center gap-1.5">
+                            <i class="fas fa-map-marker-alt text-brand-blue"></i> Rajarhat, Kolkata &middot; On-site
+                            <span class="ml-2 inline-block bg-red-50 text-red-700 font-semibold px-2 py-0.5 rounded text-[10px] border border-red-200">
+                                Best Performer Award
+                            </span>
+                        </p>
+                        
+                        <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">Key Responsibilities & Achievements:</h4>
+                        <ul class="text-sm text-slate-600 list-disc list-inside mb-4 space-y-2">
+                            <li><strong class="text-slate-800">Best Performer of the Month (July):</strong> Awarded top performer across the entire store after driving <strong class="text-slate-900">~₹15 Lakh in retail sales</strong> through consultative selling and proactive floor engagement.</li>
+                            <li><strong class="text-slate-800">Omnichannel & Loyalty Expansion:</strong> Generated <strong class="text-slate-900">67 Elite program memberships</strong> and ₹96,000 in online-availability (E-Sell) revenue, optimizing digital inventory capture.</li>
+                            <li><strong class="text-slate-800">Leadership & Department Ownership:</strong> Trusted to manage Indian & Western Women's Wear departments autonomously during senior leadership absence on 10+ separate occasions.</li>
+                            <li><strong class="text-slate-800">Training & Mentorship:</strong> Designed and conducted ESell performance training sessions for store colleagues and onboarded interns from Amity University and Aliah University.</li>
                         </ul>
-                        <h4 class="text-sm font-bold text-gray-800 mb-2">Achievements:</h4>
-                        <ul class="text-sm text-gray-600 list-disc list-inside space-y-1">
-                            <li>Awarded Best Performer of the Month (July) — ~₹15 lakh in sales</li>
-                            <li>Generated 67 Elite memberships and ₹96,000 in online (E-Sell) revenue</li>
-                        </ul>
+                        
+                        <div class="flex flex-wrap gap-1.5 pt-2 border-t border-slate-100">
+                            <span class="text-[11px] font-semibold bg-red-50 text-red-700 px-2 py-0.5 rounded">Retail Operations</span>
+                            <span class="text-[11px] font-semibold bg-red-50 text-red-700 px-2 py-0.5 rounded">CRM & Loyalty</span>
+                            <span class="text-[11px] font-semibold bg-red-50 text-red-700 px-2 py-0.5 rounded">ESell Omnichannel</span>
+                            <span class="text-[11px] font-semibold bg-red-50 text-red-700 px-2 py-0.5 rounded">Team Enablement</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Card 3 -->
+                <!-- Experience 3: METRICFLOW CONSULTING -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group mb-14 animate-on-scroll">
+                    <div class="hidden md:flex w-12 h-12 rounded-full bg-slate-900 border-4 border-white shadow-xl absolute left-1/2 transform -translate-x-1/2 z-10 items-center justify-center group-hover:scale-125 transition-transform">
+                        <i class="fas fa-chart-line text-white text-sm"></i>
+                    </div>
+                    <div class="w-full md:w-[calc(50%-2.5rem)] glass-card p-6 sm:p-7 rounded-2xl shadow-xl border-l-4 border-l-slate-800 hover:-translate-y-2 transition-transform duration-300">
+                        <div class="flex justify-between items-start flex-wrap gap-2 mb-2">
+                            <div>
+                                <h3 class="text-xl font-bold font-heading text-slate-900">Founder & Commercial Consultant</h3>
+                                <p class="text-sm font-semibold text-slate-700">MetricFlow Consulting</p>
+                            </div>
+                            <span class="bg-slate-800 text-white text-xs px-2.5 py-1 rounded-md font-bold shadow-sm">
+                                Jan 2026 – Present
+                            </span>
+                        </div>
+                        <p class="text-xs text-slate-500 font-medium mb-4"><i class="fas fa-map-marker-alt mr-1"></i> Business Operations &middot; Kolkata, India</p>
+                        
+                        <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">Scope of Work & Results:</h4>
+                        <ul class="text-sm text-slate-600 list-disc list-inside mb-4 space-y-2">
+                            <li><strong class="text-slate-800">Commercial Strategy & Web Architecture:</strong> Launched SEO-optimized corporate web properties with lead-capture infrastructure, reducing bounce rate and boosting organic search presence.</li>
+                            <li><strong class="text-slate-800">Performance Marketing & ROI:</strong> Managed targeted Google Ads and Meta campaigns for B2B/B2C clients, lowering customer acquisition costs via structured A/B creative testing.</li>
+                            <li><strong class="text-slate-800">Analytics & BI Reporting:</strong> Developed Power BI and GA4 dashboards providing clients with transparency into revenue funnels and conversion touchpoints.</li>
+                        </ul>
+                        
+                        <div class="flex flex-wrap gap-1.5 pt-2 border-t border-slate-100">
+                            <span class="text-[11px] font-semibold bg-slate-100 text-slate-800 px-2 py-0.5 rounded">Digital Acquisition</span>
+                            <span class="text-[11px] font-semibold bg-slate-100 text-slate-800 px-2 py-0.5 rounded">Google Ads</span>
+                            <span class="text-[11px] font-semibold bg-slate-100 text-slate-800 px-2 py-0.5 rounded">Power BI</span>
+                            <span class="text-[11px] font-semibold bg-slate-100 text-slate-800 px-2 py-0.5 rounded">SEO Growth</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 4: NIOS -->
                 <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group animate-on-scroll">
-                    <div class="hidden md:flex w-10 h-10 rounded-full bg-brand-red border-4 border-white shadow-lg absolute left-1/2 transform -translate-x-1/2 z-10 flex items-center justify-center group-hover:scale-125 transition-transform">
-                        <i class="fas fa-chalkboard-teacher text-white text-sm"></i>
+                    <div class="hidden md:flex w-12 h-12 rounded-full bg-slate-500 border-4 border-white shadow-xl absolute left-1/2 transform -translate-x-1/2 z-10 items-center justify-center group-hover:scale-125 transition-transform">
+                        <i class="fas fa-user-graduate text-white text-sm"></i>
                     </div>
-                    <div class="w-full md:w-[calc(50%-2.5rem)] glass-card p-6 rounded-2xl shadow-lg border-l-4 border-l-brand-blue hover:-translate-y-2 transition-transform duration-300">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-bold font-heading text-brand-dark">Educational Consultant, NIOS</h3>
-                            <span class="bg-gray-600 text-white text-xs px-2 py-1 rounded-md font-semibold">Jul 2021 – Aug 2024</span>
+                    <div class="w-full md:w-[calc(50%-2.5rem)] glass-card p-6 sm:p-7 rounded-2xl shadow-xl border-l-4 border-l-slate-500 hover:-translate-y-2 transition-transform duration-300">
+                        <div class="flex justify-between items-start flex-wrap gap-2 mb-2">
+                            <div>
+                                <h3 class="text-xl font-bold font-heading text-slate-900">Educational Consultant</h3>
+                                <p class="text-sm font-semibold text-slate-600">National Institute of Open Schooling (NIOS)</p>
+                            </div>
+                            <span class="bg-slate-600 text-white text-xs px-2.5 py-1 rounded-md font-bold shadow-sm">
+                                Jul 2021 – Aug 2024
+                            </span>
                         </div>
-                        <p class="text-sm text-gray-500 font-medium mb-4"><i class="fas fa-map-marker-alt mr-1"></i> Part-Time | Hailakandi, Assam</p>
-                        <h4 class="text-sm font-bold text-gray-800 mb-2">Responsibilities:</h4>
-                        <ul class="text-sm text-gray-600 list-disc list-inside mb-4 space-y-1">
-                            <li>Facilitated admissions for 100+ Class 10 & 12 students to the NIOS board</li>
-                            <li>Guided students on study techniques, assignments, and exam preparation</li>
-                            <li>Collected and distributed mark sheets post-exams</li>
-                        </ul>
-                        <h4 class="text-sm font-bold text-gray-800 mb-2">Achievements:</h4>
-                        <ul class="text-sm text-gray-600 list-disc list-inside space-y-1">
-                            <li>Built long-term trust with student and parent stakeholders through consistent guidance</li>
-                            <li>Sustained a 3+ year consulting relationship with the institute</li>
+                        <p class="text-xs text-slate-500 font-medium mb-4"><i class="fas fa-map-marker-alt mr-1"></i> Hailakandi, Assam &middot; 3+ Years</p>
+                        
+                        <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">Highlights:</h4>
+                        <ul class="text-sm text-slate-600 list-disc list-inside mb-4 space-y-1.5">
+                            <li>Facilitated end-to-end enrollment and counseling pipeline for 100+ Class 10 & 12 students.</li>
+                            <li>Mentored students on exam strategy and academic persistence, building multi-year trust with families and stakeholders.</li>
                         </ul>
                     </div>
                 </div>
@@ -430,11 +627,471 @@
         </div>
     </section>
 
-    <!-- SECTION 4 — EDUCATION (#education) -->
+    <!-- SECTION 4 — PROJECTS (#projects) - Featuring all GitHub Repos & Corporate Systems -->
+    <section id="projects" class="py-24 bg-white relative">
+        <div class="container mx-auto px-6">
+            <div class="mb-14 text-center animate-on-scroll">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-blue bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200">
+                    Production Systems & Research
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 mt-3 inline-block relative">
+                    Featured Enterprise Projects
+                    <span class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-1.5 bg-brand-blue rounded-full"></span>
+                </h2>
+                <p class="text-slate-600 max-w-2xl mx-auto mt-4 text-base">
+                    Production-ready analytics engines, fault-tolerant RevOps pipelines, and peer-presented international research.
+                </p>
+
+                <!-- Project Category Filters -->
+                <div class="flex flex-wrap justify-center gap-2.5 mt-8">
+                    <button class="filter-btn active px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all cursor-pointer" data-filter="all">
+                        All Projects (6)
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all cursor-pointer" data-filter="ai-bi">
+                        <i class="fas fa-brain mr-1 text-blue-600"></i> Enterprise AI & BI
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all cursor-pointer" data-filter="revops">
+                        <i class="fas fa-network-wired mr-1 text-red-600"></i> RevOps & Automation
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all cursor-pointer" data-filter="strategy">
+                        <i class="fas fa-chart-pie mr-1 text-indigo-600"></i> Research & Strategy
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                
+                <!-- Project 1: AI-BI Decision Support System (GitHub Repo) -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden border-t-4 border-t-blue-600 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col" data-category="ai-bi">
+                    <div class="p-6 sm:p-7 flex-grow">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[11px] font-extrabold uppercase tracking-wider text-blue-700 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-200">
+                                Enterprise BI &middot; GitHub
+                            </span>
+                            <span class="text-xs text-slate-400 font-mono">Python &middot; DuckDB</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2 font-heading leading-snug">
+                            AI-Powered BI Decision Support System
+                        </h3>
+                        <p class="text-slate-600 text-xs sm:text-sm mb-4 leading-relaxed">
+                            Production-ready C-suite Decision Support System querying 10,000+ sales records in sub-milliseconds with an in-memory vectorized DuckDB OLAP engine. Integrates Gemini AI for natural language Text-to-SQL querying and instant board-level PDF brief generation.
+                        </p>
+                        
+                        <h4 class="font-bold text-xs uppercase tracking-wider text-slate-800 mb-2">Key Architectural Capabilities:</h4>
+                        <ul class="text-xs sm:text-sm text-slate-600 list-disc list-inside mb-4 space-y-1.5">
+                            <li><strong class="text-slate-800">Vectorized SQL:</strong> Sub-millisecond aggregation across multi-region enterprise data.</li>
+                            <li><strong class="text-slate-800">Advanced Analytics:</strong> RFM Customer Segmentation, BCG Matrix, & Margin Leakage Detector.</li>
+                            <li><strong class="text-slate-800">Text-to-SQL AI:</strong> Conversational business queries via Gemini API with deterministic fallback.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Tech Tags & GitHub Button -->
+                    <div class="bg-slate-50 p-4 border-t border-slate-100 flex flex-col gap-3">
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="text-[10px] font-bold bg-white text-slate-700 px-2 py-0.5 rounded border shadow-xs">Python</span>
+                            <span class="text-[10px] font-bold bg-white text-slate-700 px-2 py-0.5 rounded border shadow-xs">DuckDB</span>
+                            <span class="text-[10px] font-bold bg-white text-slate-700 px-2 py-0.5 rounded border shadow-xs">Streamlit</span>
+                            <span class="text-[10px] font-bold bg-white text-slate-700 px-2 py-0.5 rounded border shadow-xs">Plotly</span>
+                            <span class="text-[10px] font-bold bg-white text-slate-700 px-2 py-0.5 rounded border shadow-xs">Gemini AI</span>
+                        </div>
+                        <div class="flex items-center justify-between pt-1">
+                            <a href="https://github.com/shidullalaskar93-coder/ai-bi-decision-support-system" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-blue-700 hover:text-blue-900 transition-colors">
+                                <i class="fab fa-github text-sm"></i> View Code on GitHub &rarr;
+                            </a>
+                            <span class="text-[10px] text-emerald-600 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                                <i class="fas fa-check-circle"></i> Production Ready
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Lead Management Automation (GitHub Repo) -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden border-t-4 border-t-brand-red shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col" data-category="revops">
+                    <div class="p-6 sm:p-7 flex-grow">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[11px] font-extrabold uppercase tracking-wider text-red-700 bg-red-50 px-2.5 py-1 rounded-full border border-red-200">
+                                RevOps Engineering &middot; GitHub
+                            </span>
+                            <span class="text-xs text-slate-400 font-mono">Python &middot; Pydantic v2</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2 font-heading leading-snug">
+                            Enterprise Lead Pipeline & DLQ Automation
+                        </h3>
+                        <p class="text-slate-600 text-xs sm:text-sm mb-4 leading-relaxed">
+                            High-velocity RevOps inbound lead automation engine built with Python 3.10+ and SQLAlchemy. Features multi-dimensional dynamic qualification scoring, thread-safe weighted SDR routing, and resilient CRM sync with Dead-Letter Queue (DLQ) safeguards.
+                        </p>
+                        
+                        <h4 class="font-bold text-xs uppercase tracking-wider text-slate-800 mb-2">Key Architectural Capabilities:</h4>
+                        <ul class="text-xs sm:text-sm text-slate-600 list-disc list-inside mb-4 space-y-1.5">
+                            <li><strong class="text-slate-800">Dynamic Lead Scoring:</strong> Firmographic, Intent, and Financial rubrics (0-100).</li>
+                            <li><strong class="text-slate-800">Smart SDR Dispatch:</strong> Thread-safe round-robin routing with 15-minute SLA schedule.</li>
+                            <li><strong class="text-slate-800">Fault-Tolerant DLQ:</strong> Exponential backoff with jitter and audit logging for dropped payloads.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Tech Tags & GitHub Button -->
+                    <div class="bg-slate-50 p-4 border-t border-slate-100 flex flex-col gap-3">
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="text-[10px] font-bold bg-white text-slate-700 px-2 py-0.5 rounded border shadow-xs">Python 3.10+</span>
+                            <span class="text-[10px] font-bold bg-white text-slate-700 px-2 py-0.5 rounded border shadow-xs">Pydantic v2</span>
+                            <span class="text-[10px] font-bold bg-white text-slate-700 px-2 py-0.5 rounded border shadow-xs">SQLAlchemy 2.0</span>
+                            <span class="text-[10px] font-bold bg-white text-slate-700 px-2 py-0.5 rounded border shadow-xs">DLQ Architecture</span>
+                            <span class="text-[10px] font-bold bg-white text-slate-700 px-2 py-0.5 rounded border shadow-xs">22 Tests Passed</span>
+                        </div>
+                        <div class="flex items-center justify-between pt-1">
+                            <a href="https://github.com/shidullalaskar93-coder/lead-management-automation" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-red-700 hover:text-red-900 transition-colors">
+                                <i class="fab fa-github text-sm"></i> View Code on GitHub &rarr;
+                            </a>
+                            <span class="text-[10px] text-blue-600 font-semibold bg-blue-50 px-2 py-0.5 rounded border border-blue-200">
+                                <i class="fas fa-shield-alt"></i> Enterprise Grade
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: SmartLead AI CRM (GitHub Repo) -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden border-t-4 border-t-indigo-600 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col" data-category="revops">
+                    <div class="p-6 sm:p-7 flex-grow">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[11px] font-extrabold uppercase tracking-wider text-indigo-700 bg-indigo-50 px-2.5 py-1 rounded-full border border-indigo-200">
+                                B2B Growth Platform &middot; GitHub
+                            </span>
+                            <span class="text-xs text-slate-400 font-mono">React 18 &middot; FastAPI</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2 font-heading leading-snug">
+                            SmartLead AI: Sales & Marketing SaaS MVP
+                        </h3>
+                        <p class="text-slate-600 text-xs sm:text-sm mb-4 leading-relaxed">
+                            B2B SaaS automation platform combining modern web frameworks, AI outreach recommendations, and international market intelligence. Evaluates cross-border expansion opportunities across 6 global markets using Pandas-powered market opportunity scoring.
+                        </p>
+                        
+                        <h4 class="font-bold text-xs uppercase tracking-wider text-slate-800 mb-2">Key Architectural Capabilities:</h4>
+                        <ul class="text-xs sm:text-sm text-slate-600 list-disc list-inside mb-4 space-y-1.5">
+                            <li><strong class="text-slate-800">AI Outreach Recommendations:</strong> Context-aware follow-up drafting based on prospect signals.</li>
+                            <li><strong class="text-slate-800">Global Market Intelligence:</strong> Cross-country opportunity scoring (US, UK, UAE, Singapore, India).</li>
+                            <li><strong class="text-slate-800">Full-Stack Tech:</strong> FastAPI async backend, PostgreSQL database, and React 18 frontend.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Tech Tags & GitHub Button -->
+                    <div class="bg-slate-50 p-4 border-t border-slate-100 flex flex-col gap-3">
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="text-[10px] font-bold bg-white text-slate-700 px-2 py-0.5 rounded border shadow-xs">FastAPI</span>
+                            <span class="text-[10px] font-bold bg-white text-slate-700 px-2 py-0.5 rounded border shadow-xs">React 18</span>
+                            <span class="text-[10px] font-bold bg-white text-slate-700 px-2 py-0.5 rounded border shadow-xs">TypeScript</span>
+                            <span class="text-[10px] font-bold bg-white text-slate-700 px-2 py-0.5 rounded border shadow-xs">Pandas</span>
+                            <span class="text-[10px] font-bold bg-white text-slate-700 px-2 py-0.5 rounded border shadow-xs">Docker</span>
+                        </div>
+                        <div class="flex items-center justify-between pt-1">
+                            <a href="https://github.com/shidullalaskar93-coder/smartlead-ai-crm" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-indigo-700 hover:text-indigo-900 transition-colors">
+                                <i class="fab fa-github text-sm"></i> View Code on GitHub &rarr;
+                            </a>
+                            <span class="text-[10px] text-indigo-600 font-semibold bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200">
+                                <i class="fas fa-rocket"></i> SaaS Prototype
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: AI in Global Supply Chain Resilience (Research Paper) -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden border-t-4 border-t-amber-500 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col" data-category="strategy">
+                    <div class="p-6 sm:p-7 flex-grow">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[11px] font-extrabold uppercase tracking-wider text-amber-800 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">
+                                Academic Conference &middot; Feb 2026
+                            </span>
+                            <span class="text-xs text-slate-400 font-mono">Globsyn GMC</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2 font-heading leading-snug">
+                            AI Integration in Global Supply Chain Resilience
+                        </h3>
+                        <p class="text-slate-600 text-xs sm:text-sm mb-4 leading-relaxed">
+                            Original research presented at the 10th International Globsyn Management Conference (The Tollygunge Club, Kolkata). Evaluates machine learning algorithms for multi-tier supplier risk mitigation, inventory buffer optimization, and geopolitical shock absorption.
+                        </p>
+                        
+                        <h4 class="font-bold text-xs uppercase tracking-wider text-slate-800 mb-2">Key Research Contributions:</h4>
+                        <ul class="text-xs sm:text-sm text-slate-600 list-disc list-inside mb-4 space-y-1.5">
+                            <li><strong class="text-slate-800">Predictive Disruption Modeling:</strong> AI frameworks anticipating maritime and logistics shocks.</li>
+                            <li><strong class="text-slate-800">Conference Presentation:</strong> Defended findings before an international panel of scholars and executives.</li>
+                            <li><strong class="text-slate-800">Official Certification:</strong> Presenter Credential GBS-GMC-07022026-122.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 border-t border-slate-100 flex flex-col gap-3">
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="text-[10px] font-bold bg-white text-slate-700 px-2 py-0.5 rounded border shadow-xs">Supply Chain AI</span>
+                            <span class="text-[10px] font-bold bg-white text-slate-700 px-2 py-0.5 rounded border shadow-xs">Global Logistics</span>
+                            <span class="text-[10px] font-bold bg-white text-slate-700 px-2 py-0.5 rounded border shadow-xs">Risk Mitigation</span>
+                        </div>
+                        <div class="flex items-center justify-between pt-1">
+                            <a href="assets/certificates/IRS%20CERTIFICATE.pdf" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-amber-800 hover:text-amber-950 transition-colors">
+                                <i class="fas fa-file-pdf text-sm text-red-600"></i> View Presenter Certificate &rarr;
+                            </a>
+                            <span class="text-[10px] text-amber-700 font-semibold bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
+                                <i class="fas fa-university"></i> Peer Presented
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: MetricFlow Consulting Digital Platform -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden border-t-4 border-t-emerald-600 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col" data-category="revops">
+                    <div class="p-6 sm:p-7 flex-grow">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[11px] font-extrabold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+                                Commercial Platform &middot; Jan 2026
+                            </span>
+                            <span class="text-xs text-slate-400 font-mono">WordPress &middot; GA4</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2 font-heading leading-snug">
+                            MetricFlow Consulting Commercial Web Engine
+                        </h3>
+                        <p class="text-slate-600 text-xs sm:text-sm mb-4 leading-relaxed">
+                            Architected and deployed a corporate consultancy web property with end-to-end SEO optimization, dynamic lead capture funnels, and integrated Google Analytics 4 performance instrumentation.
+                        </p>
+                        
+                        <h4 class="font-bold text-xs uppercase tracking-wider text-slate-800 mb-2">Key Outcomes:</h4>
+                        <ul class="text-xs sm:text-sm text-slate-600 list-disc list-inside mb-4 space-y-1.5">
+                            <li>Established credible corporate digital footprint for commercial client acquisition.</li>
+                            <li>Implemented custom event tracking for form submissions and user engagement funnels.</li>
+                            <li>Connected automated email sequences for qualified B2B lead generation.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 border-t border-slate-100 flex flex-col gap-3">
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="text-[10px] font-bold bg-white text-slate-700 px-2 py-0.5 rounded border shadow-xs">WordPress</span>
+                            <span class="text-[10px] font-bold bg-white text-slate-700 px-2 py-0.5 rounded border shadow-xs">Technical SEO</span>
+                            <span class="text-[10px] font-bold bg-white text-slate-700 px-2 py-0.5 rounded border shadow-xs">Google Analytics 4</span>
+                            <span class="text-[10px] font-bold bg-white text-slate-700 px-2 py-0.5 rounded border shadow-xs">Lead Funnels</span>
+                        </div>
+                        <div class="flex items-center justify-between pt-1">
+                            <a href="https://metricflowconsulting.com" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-emerald-800 hover:text-emerald-950 transition-colors">
+                                <i class="fas fa-external-link-alt text-xs"></i> Visit Live Platform &rarr;
+                            </a>
+                            <span class="text-[10px] text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                                <i class="fas fa-globe"></i> Live
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: ESell Retail Performance System (Max Fashion) -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden border-t-4 border-t-sky-600 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col" data-category="strategy">
+                    <div class="p-6 sm:p-7 flex-grow">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[11px] font-extrabold uppercase tracking-wider text-sky-800 bg-sky-50 px-2.5 py-1 rounded-full border border-sky-200">
+                                Retail Operations &middot; Landmark Group
+                            </span>
+                            <span class="text-xs text-slate-400 font-mono">Omnichannel CRM</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2 font-heading leading-snug">
+                            Omnichannel ESell Retail Enablement Program
+                        </h3>
+                        <p class="text-slate-600 text-xs sm:text-sm mb-4 leading-relaxed">
+                            Formulated and conducted an internal omnichannel enablement program at Max Fashion, training store staff and university interns on digitized out-of-stock fulfillment and systematic NPS customer feedback collection.
+                        </p>
+                        
+                        <h4 class="font-bold text-xs uppercase tracking-wider text-slate-800 mb-2">Key Outcomes:</h4>
+                        <ul class="text-xs sm:text-sm text-slate-600 list-disc list-inside mb-4 space-y-1.5">
+                            <li>Department achieved and exceeded sales targets across all 6 consecutive days in final week.</li>
+                            <li>Standardized NPS feedback capture protocol adopted as standard procedure across the store.</li>
+                            <li>Trained 10+ interns from Amity University & Aliah University on inventory systems.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 border-t border-slate-100 flex flex-col gap-3">
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="text-[10px] font-bold bg-white text-slate-700 px-2 py-0.5 rounded border shadow-xs">Retail Enablement</span>
+                            <span class="text-[10px] font-bold bg-white text-slate-700 px-2 py-0.5 rounded border shadow-xs">Omnichannel CRM</span>
+                            <span class="text-[10px] font-bold bg-white text-slate-700 px-2 py-0.5 rounded border shadow-xs">Staff Training</span>
+                        </div>
+                        <div class="flex items-center justify-between pt-1">
+                            <span class="text-xs font-semibold text-slate-600">
+                                <i class="fas fa-check text-green-600 mr-1"></i> Landmark Group Executed
+                            </span>
+                            <span class="text-[10px] text-sky-700 font-semibold bg-sky-50 px-2 py-0.5 rounded border border-sky-200">
+                                <i class="fas fa-store"></i> Retail System
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5 — SKILLS (#skills) -->
+    <section id="skills" class="py-24 bg-slate-50 relative border-t border-slate-200">
+        <div class="container mx-auto px-6">
+            <div class="mb-16 text-center animate-on-scroll">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-blue bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200">
+                    Enterprise Capabilities
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 mt-3 inline-block relative">
+                    Core Competencies
+                    <span class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-1.5 bg-brand-blue rounded-full"></span>
+                </h2>
+                <p class="text-slate-600 max-w-2xl mx-auto mt-4 text-base">
+                    The strategic intersection of commercial FMCG strategy, enterprise data intelligence, and resilient software architecture.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Pillar 1: FMCG & Commercial Leadership -->
+                <div class="glass-card p-7 rounded-2xl shadow-lg border-t-4 border-t-blue-600 animate-on-scroll">
+                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center text-xl mb-5 shadow-xs">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2 font-heading">FMCG & Commercial Strategy</h3>
+                    <p class="text-xs text-slate-500 mb-6">Proven consumer activation, retail operations, and international commercial strategy.</p>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                                <span>FMCG Brand Promotion & Consumer Engagement</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-2"><div class="bg-blue-600 h-2 rounded-full" style="width: 95%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                                <span>Retail Sales Velocity & POS Analytics</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-2"><div class="bg-blue-600 h-2 rounded-full" style="width: 90%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                                <span>Merchandising & Planogram Compliance</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-2"><div class="bg-blue-600 h-2 rounded-full" style="width: 90%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                                <span>International Business & Global Strategy</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-2"><div class="bg-blue-600 h-2 rounded-full" style="width: 85%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                                <span>Omnichannel CRM & Customer Retention</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-2"><div class="bg-blue-600 h-2 rounded-full" style="width: 90%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pillar 2: Enterprise BI & Data Science -->
+                <div class="glass-card p-7 rounded-2xl shadow-lg border-t-4 border-t-brand-red animate-on-scroll">
+                    <div class="w-12 h-12 rounded-xl bg-red-50 text-brand-red flex items-center justify-center text-xl mb-5 shadow-xs">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2 font-heading">Enterprise BI & Analytics</h3>
+                    <p class="text-xs text-slate-500 mb-6">Extracting high-velocity insights, executive scorecards, and predictive models.</p>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                                <span>DuckDB & Vectorized In-Memory SQL</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-2"><div class="bg-brand-red h-2 rounded-full" style="width: 90%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                                <span>Python for Data Science (Pandas, NumPy)</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-2"><div class="bg-brand-red h-2 rounded-full" style="width: 85%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                                <span>Power BI & Interactive Dashboards</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-2"><div class="bg-brand-red h-2 rounded-full" style="width: 85%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                                <span>Google Analytics 4 & Tag Instrumentation</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-2"><div class="bg-brand-red h-2 rounded-full" style="width: 85%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                                <span>Advanced Excel & Financial Modeling</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-2"><div class="bg-brand-red h-2 rounded-full" style="width: 95%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pillar 3: RevOps & System Architecture -->
+                <div class="glass-card p-7 rounded-2xl shadow-lg border-t-4 border-t-slate-800 animate-on-scroll">
+                    <div class="w-12 h-12 rounded-xl bg-slate-100 text-slate-800 flex items-center justify-center text-xl mb-5 shadow-xs">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2 font-heading">RevOps & Automation</h3>
+                    <p class="text-xs text-slate-500 mb-6">Building resilient pipeline engineering, lead routing, and scalable APIs.</p>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                                <span>Resilient Pipelines (DLQ & Retries)</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-2"><div class="bg-slate-800 h-2 rounded-full" style="width: 90%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                                <span>Dynamic Scoring & Round-Robin Routing</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-2"><div class="bg-slate-800 h-2 rounded-full" style="width: 90%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                                <span>FastAPI, Pydantic & SQLAlchemy</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-2"><div class="bg-slate-800 h-2 rounded-full" style="width: 85%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                                <span>Generative AI Orchestration (LLMs)</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-2"><div class="bg-slate-800 h-2 rounded-full" style="width: 85%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                                <span>Docker, Git & Production Deployment</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-2"><div class="bg-slate-800 h-2 rounded-full" style="width: 80%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6 — EDUCATION (#education) -->
     <section id="education" class="py-24 bg-white">
         <div class="container mx-auto px-6">
             <div class="mb-16 text-center animate-on-scroll">
-                <h2 class="text-4xl font-extrabold font-heading text-brand-dark inline-block relative">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-blue bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200">
+                    Academic Pedigree
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 mt-3 inline-block relative">
                     Education
                     <span class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-1.5 bg-brand-blue rounded-full"></span>
                 </h2>
@@ -442,402 +1099,105 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <!-- Edu 1 -->
+                <!-- Edu 1: MBA -->
                 <div class="glass-card p-8 rounded-2xl border-t-4 border-brand-blue hover:shadow-2xl transition-shadow animate-on-scroll relative overflow-hidden">
                     <i class="fas fa-graduation-cap absolute -right-4 -bottom-4 text-8xl text-brand-blue opacity-5"></i>
-                    <h3 class="text-xl font-bold font-heading text-brand-dark mb-1">MBA — Marketing & International Business</h3>
+                    <h3 class="text-xl font-bold font-heading text-slate-900 mb-1">MBA — Marketing & International Business</h3>
                     <p class="text-brand-red font-semibold mb-3">Globsyn Business School</p>
-                    <div class="flex justify-between text-sm text-gray-500 mb-4 border-b pb-4">
+                    <div class="flex justify-between text-xs text-slate-500 mb-4 border-b pb-4">
                         <span>2025–2027 (Pursuing)</span>
-                        <span>Full-time</span>
+                        <span class="font-bold text-slate-700">Full-Time</span>
                     </div>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li><i class="fas fa-check text-brand-blue mr-2"></i>Specialization in Marketing & International Business</li>
-                        <li><i class="fas fa-check text-brand-blue mr-2"></i>Presented paper at 10th International Globsyn Management Conference</li>
-                        <li><i class="fas fa-check text-brand-blue mr-2"></i>Coursework in strategic marketing, brand management, and global business</li>
+                    <ul class="text-xs sm:text-sm text-slate-600 space-y-2">
+                        <li><i class="fas fa-check text-brand-blue mr-2"></i>Double specialization in Strategic Marketing & Global Business Operations</li>
+                        <li><i class="fas fa-check text-brand-blue mr-2"></i>Presenter at 10th International Globsyn Management Conference</li>
+                        <li><i class="fas fa-check text-brand-blue mr-2"></i>Coursework in Brand Management, Global Supply Chain, & Consumer Psychology</li>
                     </ul>
                 </div>
 
-                <!-- Edu 2 -->
+                <!-- Edu 2: B.A. -->
                 <div class="glass-card p-8 rounded-2xl border-t-4 border-brand-red hover:shadow-2xl transition-shadow animate-on-scroll relative overflow-hidden">
                     <i class="fas fa-university absolute -right-4 -bottom-4 text-8xl text-brand-red opacity-5"></i>
-                    <h3 class="text-xl font-bold font-heading text-brand-dark mb-1">B.A.</h3>
+                    <h3 class="text-xl font-bold font-heading text-slate-900 mb-1">Bachelor of Arts (B.A.)</h3>
                     <p class="text-brand-blue font-semibold mb-3">Assam University, Silchar</p>
-                    <div class="flex justify-between text-sm text-gray-500 mb-4 border-b pb-4">
+                    <div class="flex justify-between text-xs text-slate-500 mb-4 border-b pb-4">
                         <span>2021–2024</span>
-                        <span>75.95% | Full-time</span>
+                        <span class="font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">75.95% | Distinction</span>
                     </div>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li><i class="fas fa-check text-brand-red mr-2"></i>Strong analytical and communication foundation</li>
-                        <li><i class="fas fa-check text-brand-red mr-2"></i>Consistent academic performance</li>
-                        <li><i class="fas fa-check text-brand-red mr-2"></i>Base for MBA specialization</li>
+                    <ul class="text-xs sm:text-sm text-slate-600 space-y-2">
+                        <li><i class="fas fa-check text-brand-red mr-2"></i>Strong foundation in analytical reasoning, qualitative research, and communication</li>
+                        <li><i class="fas fa-check text-brand-red mr-2"></i>Consistent top-tier academic performance throughout all semesters</li>
                     </ul>
                 </div>
 
-                <!-- Edu 3 -->
-                <div class="glass-card p-8 rounded-2xl border-t-4 border-brand-blue hover:shadow-2xl transition-shadow animate-on-scroll relative overflow-hidden">
-                    <i class="fas fa-laptop-code absolute -right-4 -bottom-4 text-8xl text-brand-blue opacity-5"></i>
-                    <h3 class="text-xl font-bold font-heading text-brand-dark mb-1">Diploma in Computer & Information Technology</h3>
+                <!-- Edu 3: Diploma in CIT -->
+                <div class="glass-card p-8 rounded-2xl border-t-4 border-slate-800 hover:shadow-2xl transition-shadow animate-on-scroll relative overflow-hidden">
+                    <i class="fas fa-laptop-code absolute -right-4 -bottom-4 text-8xl text-slate-800 opacity-5"></i>
+                    <h3 class="text-xl font-bold font-heading text-slate-900 mb-1">Diploma in Computer & Information Technology</h3>
                     <p class="text-brand-red font-semibold mb-3">Assam University, Silchar</p>
-                    <div class="flex justify-between text-sm text-gray-500 mb-4 border-b pb-4">
+                    <div class="flex justify-between text-xs text-slate-500 mb-4 border-b pb-4">
                         <span>2023–2024</span>
-                        <span>82%</span>
+                        <span class="font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">82.00%</span>
                     </div>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li><i class="fas fa-check text-brand-blue mr-2"></i>Office automation tools</li>
-                        <li><i class="fas fa-check text-brand-blue mr-2"></i>IT systems fundamentals</li>
-                        <li><i class="fas fa-check text-brand-blue mr-2"></i>Foundational data management skills</li>
+                    <ul class="text-xs sm:text-sm text-slate-600 space-y-2">
+                        <li><i class="fas fa-check text-slate-800 mr-2"></i>Relational database design, data structures, and computer architectures</li>
+                        <li><i class="fas fa-check text-slate-800 mr-2"></i>Foundational software engineering and business automation tools</li>
                     </ul>
                 </div>
 
-                <!-- Edu 4 -->
-                <div class="glass-card p-8 rounded-2xl border-t-4 border-brand-red hover:shadow-2xl transition-shadow animate-on-scroll">
-                    <h3 class="text-xl font-bold font-heading text-brand-dark mb-1">Diploma in Computer Application</h3>
-                    <p class="text-brand-blue font-semibold mb-3">Barakvalley Institute of Technology</p>
-                    <div class="flex justify-between text-sm text-gray-500 mb-4 border-b pb-4">
+                <!-- Edu 4: Diploma in Computer Application -->
+                <div class="glass-card p-6 rounded-2xl border-t-4 border-slate-400 hover:shadow-xl transition-shadow animate-on-scroll">
+                    <h3 class="text-lg font-bold font-heading text-slate-900 mb-1">Diploma in Computer Application</h3>
+                    <p class="text-brand-blue font-semibold text-sm mb-2">Barakvalley Institute of Technology</p>
+                    <div class="flex justify-between text-xs text-slate-500 border-b pb-3 mb-3">
                         <span>2018–2019</span>
-                        <span>71%</span>
+                        <span class="font-bold">71%</span>
                     </div>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li><i class="fas fa-check text-brand-red mr-2"></i>Early computer applications training</li>
-                        <li><i class="fas fa-check text-brand-red mr-2"></i>Digital literacy foundation</li>
-                    </ul>
+                    <p class="text-xs text-slate-600">Early digital foundations in software tools, spreadsheet modeling, and operating systems.</p>
                 </div>
 
-                <!-- Edu 5 -->
-                <div class="glass-card p-8 rounded-2xl border-t-4 border-brand-blue hover:shadow-2xl transition-shadow animate-on-scroll">
-                    <h3 class="text-xl font-bold font-heading text-brand-dark mb-1">Class XII (Arts)</h3>
-                    <p class="text-brand-red font-semibold mb-3">Srikishan Sarda College</p>
-                    <div class="flex justify-between text-sm text-gray-500 mb-4 border-b pb-4">
+                <!-- Edu 5: Class XII -->
+                <div class="glass-card p-6 rounded-2xl border-t-4 border-slate-400 hover:shadow-xl transition-shadow animate-on-scroll">
+                    <h3 class="text-lg font-bold font-heading text-slate-900 mb-1">Higher Secondary (Class XII)</h3>
+                    <p class="text-brand-red font-semibold text-sm mb-2">Srikishan Sarda College</p>
+                    <div class="flex justify-between text-xs text-slate-500 border-b pb-3 mb-3">
                         <span>2019–2020</span>
-                        <span>50%</span>
+                        <span class="font-bold">Arts Stream</span>
                     </div>
                 </div>
 
-                <!-- Edu 6 -->
-                <div class="glass-card p-8 rounded-2xl border-t-4 border-brand-red hover:shadow-2xl transition-shadow animate-on-scroll">
-                    <h3 class="text-xl font-bold font-heading text-brand-dark mb-1">Class X</h3>
-                    <p class="text-brand-blue font-semibold mb-3">Intaz Ali Choudhury Sishu Bikash Biddyapith</p>
-                    <div class="flex justify-between text-sm text-gray-500 mb-4 border-b pb-4">
+                <!-- Edu 6: Class X -->
+                <div class="glass-card p-6 rounded-2xl border-t-4 border-slate-400 hover:shadow-xl transition-shadow animate-on-scroll">
+                    <h3 class="text-lg font-bold font-heading text-slate-900 mb-1">Secondary School (Class X)</h3>
+                    <p class="text-brand-blue font-semibold text-sm mb-2">Intaz Ali Choudhury Sishu Bikash Biddyapith</p>
+                    <div class="flex justify-between text-xs text-slate-500 border-b pb-3 mb-3">
                         <span>2016</span>
-                        <span>72.33%</span>
+                        <span class="font-bold text-slate-700">72.33%</span>
                     </div>
                 </div>
 
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 5 — PROJECTS (#projects) -->
-    <section id="projects" class="py-24 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="mb-16 text-center animate-on-scroll">
-                <h2 class="text-4xl font-extrabold font-heading text-brand-dark inline-block relative">
-                    Projects
-                    <span class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-1.5 bg-brand-red rounded-full"></span>
-                </h2>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="glass-card rounded-xl overflow-hidden border-l-8 border-brand-blue shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 animate-on-scroll flex flex-col">
-                    <div class="p-6 flex-grow">
-                        <div class="text-xs font-bold tracking-wider text-brand-red mb-2 uppercase">Business Consulting Platform</div>
-                        <h3 class="text-2xl font-bold text-brand-dark mb-2 font-heading">MetricFlow Consulting Website</h3>
-                        <p class="text-sm text-gray-500 mb-4"><i class="far fa-clock mr-1"></i> Jan 2026 – Present</p>
-                        <p class="text-gray-700 mb-4 text-sm">Designed and launched a fully SEO-optimized WordPress consultancy website with service pages, lead capture forms, and integrated analytics tracking.</p>
-                        
-                        <h4 class="font-bold text-sm text-brand-dark mb-2">Outcomes:</h4>
-                        <ul class="text-sm text-gray-600 list-disc list-inside mb-6 space-y-1">
-                            <li>Implemented Google Analytics to monitor conversions and visitor behavior</li>
-                            <li>Established a professional, verifiable digital presence for consultancy services</li>
-                            <li>Structured lead-generation pages for B2B client acquisition</li>
-                        </ul>
-                    </div>
-                    <div class="bg-gray-100 p-4 border-t flex flex-wrap gap-2">
-                        <span class="text-xs font-semibold bg-white px-2 py-1 rounded shadow-sm">WordPress</span>
-                        <span class="text-xs font-semibold bg-white px-2 py-1 rounded shadow-sm">SEO</span>
-                        <span class="text-xs font-semibold bg-white px-2 py-1 rounded shadow-sm">Google Analytics</span>
-                        <span class="text-xs font-semibold bg-white px-2 py-1 rounded shadow-sm">Google Ads</span>
-                        <span class="text-xs font-semibold bg-white px-2 py-1 rounded shadow-sm">Meta Ads</span>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="glass-card rounded-xl overflow-hidden border-l-8 border-brand-red shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 animate-on-scroll flex flex-col">
-                    <div class="p-6 flex-grow">
-                        <div class="text-xs font-bold tracking-wider text-brand-blue mb-2 uppercase">Research Paper</div>
-                        <h3 class="text-2xl font-bold text-brand-dark mb-2 font-heading">AI Integration in Global Supply Chain Resilience</h3>
-                        <p class="text-sm text-gray-500 mb-4"><i class="far fa-calendar-alt mr-1"></i> Presented: Feb 2026</p>
-                        <p class="text-gray-700 mb-4 text-sm">Authored and presented a conference paper examining how AI integration strengthens resilience in global supply chains, presented at the 10th International Globsyn Management Conference at The Tollygunge Club.</p>
-                        
-                        <h4 class="font-bold text-sm text-brand-dark mb-2">Outcomes:</h4>
-                        <ul class="text-sm text-gray-600 list-disc list-inside mb-6 space-y-1">
-                            <li>Delivered original research to an academic and industry audience</li>
-                            <li>Received official conference presenter certification (Cert No. GBS-GMC-07022026-122)</li>
-                        </ul>
-                    </div>
-                    <div class="bg-gray-100 p-4 border-t flex flex-wrap gap-2">
-                        <span class="text-xs font-semibold bg-white px-2 py-1 rounded shadow-sm">Research & Analysis</span>
-                        <span class="text-xs font-semibold bg-white px-2 py-1 rounded shadow-sm">AI in Business</span>
-                        <span class="text-xs font-semibold bg-white px-2 py-1 rounded shadow-sm">Supply Chain Strategy</span>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="glass-card rounded-xl overflow-hidden border-l-8 border-brand-blue shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 animate-on-scroll flex flex-col">
-                    <div class="p-6 flex-grow">
-                        <div class="text-xs font-bold tracking-wider text-brand-red mb-2 uppercase">Internal Training Initiative</div>
-                        <h3 class="text-2xl font-bold text-brand-dark mb-2 font-heading">ESell Performance Training Program</h3>
-                        <p class="text-sm text-gray-500 mb-4"><i class="far fa-building mr-1"></i> Max Fashion & Lifestyle | 2026</p>
-                        <p class="text-gray-700 mb-4 text-sm">Designed and delivered an ESell (online-availability sales) training presentation to store staff and new interns from Amity University and Aliah University.</p>
-                        
-                        <h4 class="font-bold text-sm text-brand-dark mb-2">Outcomes:</h4>
-                        <ul class="text-sm text-gray-600 list-disc list-inside mb-6 space-y-1">
-                            <li>Trained peers on genuine customer feedback collection methods</li>
-                            <li>Model NPS approach adopted by other staff members</li>
-                            <li>Contributed to department exceeding sales targets on all 6 working days in final week</li>
-                        </ul>
-                    </div>
-                    <div class="bg-gray-100 p-4 border-t flex flex-wrap gap-2">
-                        <span class="text-xs font-semibold bg-white px-2 py-1 rounded shadow-sm">Retail Sales Systems</span>
-                        <span class="text-xs font-semibold bg-white px-2 py-1 rounded shadow-sm">CRM</span>
-                        <span class="text-xs font-semibold bg-white px-2 py-1 rounded shadow-sm">Training & Development</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- BLOG SECTION (#blog) -->
-    <section id="blog" class="py-24 relative" style="background-color: #0a1930; background-image: radial-gradient(at 30% 70%, rgba(37,99,235,0.2) 0, transparent 50%), radial-gradient(at 70% 30%, rgba(220,38,38,0.15) 0, transparent 50%);">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 animate-on-scroll">
-                <h2 class="text-4xl font-extrabold font-heading text-white inline-block relative mb-2">
-                    Latest Blog <span class="text-red-500">Posts</span>
-                    <span class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-1.5 bg-brand-red rounded-full"></span>
-                </h2>
-                <p class="text-lg text-gray-300 mt-4">Insights on technology, business strategy, and sustainable growth from MetricFlow Consulting</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-
-                <!-- Blog Card 1 -->
-                <a href="https://metricflowconsulting.com/the-dual-imperative-of-modern-esg/" target="_blank" class="group animate-on-scroll">
-                    <div class="glass-card-dark rounded-2xl overflow-hidden border border-white/10 hover:border-blue-500/40 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-blue-500/20">
-                        <div class="h-52 relative overflow-hidden">
-                            <div class="w-full h-full bg-gradient-to-br from-blue-900 via-blue-800 to-green-900 flex items-center justify-center relative">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                                <div class="text-center z-10 px-6">
-                                    <i class="fas fa-leaf text-5xl text-green-400 mb-3 opacity-80"></i>
-                                    <div class="text-xs text-green-300 font-semibold uppercase tracking-widest">ESG & AI</div>
-                                </div>
-                            </div>
-                            <div class="absolute top-4 right-4 bg-red-600 text-white text-xs px-3 py-1 rounded-full font-bold shadow-lg">
-                                <i class="fas fa-external-link-alt mr-1"></i> Read
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex items-center gap-2 mb-3">
-                                <span class="bg-blue-500/20 text-blue-300 text-xs px-2 py-1 rounded font-semibold">Research</span>
-                                <span class="text-gray-500 text-xs">March 3, 2026</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-blue-300 transition-colors leading-snug">The Dual Imperative of Modern ESG: Scaling Data Governance with AI While Cultivating Social Empathy</h3>
-                            <p class="text-gray-400 text-sm leading-relaxed">Environmental, Social, and Governance (ESG) criteria have undergone significant transformation. Exploring how AI-driven data governance and social empathy reshape modern sustainability...</p>
-                            <div class="mt-4 flex items-center text-red-400 text-sm font-bold group-hover:text-red-300 transition-colors">
-                                Read Full Article <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Blog Card 2 -->
-                <a href="https://metricflowconsulting.com/can-india-lead-the-solar-energy-revolution/" target="_blank" class="group animate-on-scroll">
-                    <div class="glass-card-dark rounded-2xl overflow-hidden border border-white/10 hover:border-red-500/40 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-red-500/20">
-                        <div class="h-52 relative overflow-hidden">
-                            <div class="w-full h-full bg-gradient-to-br from-orange-900 via-amber-800 to-blue-900 flex items-center justify-center relative">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                                <div class="text-center z-10 px-6">
-                                    <i class="fas fa-solar-panel text-5xl text-amber-400 mb-3 opacity-80"></i>
-                                    <div class="text-xs text-amber-300 font-semibold uppercase tracking-widest">Energy & Policy</div>
-                                </div>
-                            </div>
-                            <div class="absolute top-4 right-4 bg-red-600 text-white text-xs px-3 py-1 rounded-full font-bold shadow-lg">
-                                <i class="fas fa-external-link-alt mr-1"></i> Read
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex items-center gap-2 mb-3">
-                                <span class="bg-amber-500/20 text-amber-300 text-xs px-2 py-1 rounded font-semibold">Analysis</span>
-                                <span class="text-gray-500 text-xs">February 22, 2026</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-amber-300 transition-colors leading-snug">Can India Lead the Solar Energy Revolution?</h3>
-                            <p class="text-gray-400 text-sm leading-relaxed">India is at the cutting edge of the renewable energy revolution. With 140 GW installed solar capacity and ambitious government plans, can India become a global leader in solar energy?</p>
-                            <div class="mt-4 flex items-center text-red-400 text-sm font-bold group-hover:text-red-300 transition-colors">
-                                Read Full Article <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-            </div>
-
-            <!-- Visit Blog CTA -->
-            <div class="text-center mt-12 animate-on-scroll">
-                <a href="https://metricflowconsulting.com/blog/" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-blue-600 text-white px-8 py-3 rounded-full font-bold text-sm hover:shadow-lg hover:shadow-red-500/30 transition-all hover:-translate-y-1">
-                    <i class="fas fa-blog"></i> Visit MetricFlow Blog
-                    <i class="fas fa-external-link-alt text-xs"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 6 — SKILLS (#skills) -->
-    <section id="skills" class="py-24 bg-white relative">
-        <div class="container mx-auto px-6">
-            <div class="mb-16 text-center animate-on-scroll">
-                <h2 class="text-4xl font-extrabold font-heading text-brand-dark inline-block relative">
-                    Skills
-                    <span class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-1.5 bg-brand-blue rounded-full"></span>
-                </h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                <!-- Group 1 -->
-                <div class="animate-on-scroll">
-                    <h3 class="text-xl font-bold text-brand-dark mb-6 flex items-center"><i class="fas fa-bullhorn text-brand-red mr-3"></i> Digital Marketing & Growth</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between text-sm font-semibold mb-1"><span>SEO</span><span>90%</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-gradient-to-r from-brand-blue to-brand-red h-2 rounded-full" style="width: 90%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm font-semibold mb-1"><span>Google Ads & Meta Ads</span><span>85%</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-gradient-to-r from-brand-blue to-brand-red h-2 rounded-full" style="width: 85%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm font-semibold mb-1"><span>Social Media Marketing</span><span>85%</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-gradient-to-r from-brand-blue to-brand-red h-2 rounded-full" style="width: 85%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm font-semibold mb-1"><span>Content Marketing</span><span>80%</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-gradient-to-r from-brand-blue to-brand-red h-2 rounded-full" style="width: 80%"></div></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Group 2 -->
-                <div class="animate-on-scroll">
-                    <h3 class="text-xl font-bold text-brand-dark mb-6 flex items-center"><i class="fas fa-chart-pie text-brand-blue mr-3"></i> Data & Analytics</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between text-sm font-semibold mb-1"><span>SQL</span><span>85%</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-gradient-to-r from-brand-blue to-brand-red h-2 rounded-full" style="width: 85%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm font-semibold mb-1"><span>Power BI</span><span>80%</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-gradient-to-r from-brand-blue to-brand-red h-2 rounded-full" style="width: 80%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm font-semibold mb-1"><span>Google Analytics</span><span>85%</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-gradient-to-r from-brand-blue to-brand-red h-2 rounded-full" style="width: 85%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm font-semibold mb-1"><span>Python</span><span>75%</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-gradient-to-r from-brand-blue to-brand-red h-2 rounded-full" style="width: 75%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm font-semibold mb-1"><span>Excel</span><span>90%</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-gradient-to-r from-brand-blue to-brand-red h-2 rounded-full" style="width: 90%"></div></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Group 3 -->
-                <div class="animate-on-scroll">
-                    <h3 class="text-xl font-bold text-brand-dark mb-6 flex items-center"><i class="fas fa-laptop-code text-brand-red mr-3"></i> Web & Technical</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between text-sm font-semibold mb-1"><span>WordPress Development</span><span>85%</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-gradient-to-r from-brand-blue to-brand-red h-2 rounded-full" style="width: 85%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm font-semibold mb-1"><span>Web Design</span><span>75%</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-gradient-to-r from-brand-blue to-brand-red h-2 rounded-full" style="width: 75%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm font-semibold mb-1"><span>AI Tools & Automation</span><span>80%</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-gradient-to-r from-brand-blue to-brand-red h-2 rounded-full" style="width: 80%"></div></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Group 4 -->
-                <div class="animate-on-scroll">
-                    <h3 class="text-xl font-bold text-brand-dark mb-6 flex items-center"><i class="fas fa-briefcase text-brand-blue mr-3"></i> Business & Strategy</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between text-sm font-semibold mb-1"><span>Brand Management</span><span>80%</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-gradient-to-r from-brand-blue to-brand-red h-2 rounded-full" style="width: 80%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm font-semibold mb-1"><span>Project Management</span><span>85%</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-gradient-to-r from-brand-blue to-brand-red h-2 rounded-full" style="width: 85%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm font-semibold mb-1"><span>Business Consulting</span><span>85%</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-gradient-to-r from-brand-blue to-brand-red h-2 rounded-full" style="width: 85%"></div></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Group 5 -->
-                <div class="animate-on-scroll">
-                    <h3 class="text-xl font-bold text-brand-dark mb-6 flex items-center"><i class="fas fa-users text-brand-red mr-3"></i> Relationship & Leadership</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between text-sm font-semibold mb-1"><span>CRM</span><span>90%</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-gradient-to-r from-brand-blue to-brand-red h-2 rounded-full" style="width: 90%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm font-semibold mb-1"><span>Team Leadership</span><span>85%</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-gradient-to-r from-brand-blue to-brand-red h-2 rounded-full" style="width: 85%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm font-semibold mb-1"><span>Sales & Negotiation</span><span>85%</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-gradient-to-r from-brand-blue to-brand-red h-2 rounded-full" style="width: 85%"></div></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Languages -->
-                <div class="animate-on-scroll">
-                    <h3 class="text-xl font-bold text-brand-dark mb-6 flex items-center"><i class="fas fa-language text-brand-blue mr-3"></i> Languages</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="bg-gray-100 text-brand-dark px-4 py-2 rounded-lg font-semibold text-sm border border-gray-200">English (Professional)</span>
-                        <span class="bg-brand-blue text-white px-4 py-2 rounded-lg font-semibold text-sm">Bengali (Native)</span>
-                        <span class="bg-gray-100 text-brand-dark px-4 py-2 rounded-lg font-semibold text-sm border border-gray-200">Assamese (Working)</span>
-                        <span class="bg-gray-100 text-brand-dark px-4 py-2 rounded-lg font-semibold text-sm border border-gray-200">Hindi (Working)</span>
-                        <span class="bg-gray-100 text-brand-dark px-4 py-2 rounded-lg font-semibold text-sm border border-gray-200">French (Basic — certified)</span>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- SECTION 7 — CERTIFICATIONS (#certifications) -->
-    <section id="certifications" class="py-24 bg-gray-50">
+    <section id="certifications" class="py-24 bg-slate-50 border-t border-slate-200">
         <div class="container mx-auto px-6">
             <div class="mb-16 text-center animate-on-scroll">
-                <h2 class="text-4xl font-extrabold font-heading text-brand-dark inline-block relative mb-2">
-                    Certifications
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-red bg-red-50 px-3.5 py-1.5 rounded-full border border-red-200">
+                    Continuous Learning
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 mt-3 inline-block relative mb-2">
+                    Professional Certifications
                     <span class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-1.5 bg-brand-red rounded-full"></span>
                 </h2>
-                <p class="text-lg text-gray-500 mt-4">27 Professional Certifications from HP LIFE Foundation, Simplilearn, Google, NPTEL, TCS iON, Globsyn Business School</p>
+                <p class="text-slate-600 max-w-2xl mx-auto mt-4 text-base">
+                    27 Verified Credentials across Artificial Intelligence, Data Science, Brand Strategy, & Project Management from Google, NPTEL, HP LIFE, TCS iON, and Globsyn Business School.
+                </p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <!-- Generating all 27 exact certs -->
+                <!-- Generating all 27 exact verified certificates -->
                 <script>
                     const certs = [
                         {name: "AI Product Management Course", file: "AI%20PRODUCT%20MANAGEMENT.pdf"},
@@ -869,21 +1229,21 @@
                         {name: "Certified Project Manager (CPM)", file: "project%20management.pdf"}
                     ];
 
-                    certs.forEach((cert, i) => {
+                    certs.forEach((cert) => {
                         document.write(`
                             <a href="assets/certificates/${cert.file}" target="_blank" class="glass-card rounded-xl overflow-hidden hover:-translate-y-2 transition-transform duration-300 block group shadow-md hover:shadow-xl border-t-4 border-t-transparent hover:border-t-brand-blue bg-white animate-on-scroll">
-                                <div class="h-40 relative bg-gradient-to-br from-blue-50 to-red-50 flex items-center justify-center overflow-hidden border-b">
+                                <div class="h-36 relative bg-gradient-to-br from-blue-50 to-red-50 flex items-center justify-center overflow-hidden border-b">
                                     <div class="absolute inset-0 bg-gradient-to-r from-brand-blue to-brand-red opacity-10 group-hover:opacity-20 transition-opacity"></div>
-                                    <i class="fas fa-certificate text-5xl text-brand-dark opacity-20 absolute"></i>
+                                    <i class="fas fa-certificate text-5xl text-brand-dark opacity-15 absolute"></i>
                                     <object data="assets/certificates/${cert.file}#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" class="w-full h-full cert-iframe opacity-60 group-hover:opacity-100 transition-opacity z-10"></object>
                                     <div class="absolute inset-0 z-20 flex items-center justify-center bg-black/0 group-hover:bg-black/10 transition-colors">
-                                        <div class="bg-white text-brand-dark px-3 py-1 rounded-full text-xs font-bold shadow-lg opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all">View PDF</div>
+                                        <div class="bg-white text-brand-dark px-3 py-1 rounded-full text-xs font-bold shadow-lg opacity-0 group-hover:opacity-100 transform translate-y-3 group-hover:translate-y-0 transition-all">View PDF</div>
                                     </div>
                                 </div>
                                 <div class="p-4">
-                                    <h4 class="font-bold text-sm text-brand-dark leading-tight line-clamp-2">${cert.name}</h4>
-                                    <div class="mt-2 text-xs text-brand-red font-semibold flex items-center">
-                                        <i class="fas fa-check-circle mr-1"></i> Verified
+                                    <h4 class="font-bold text-xs sm:text-sm text-brand-dark leading-snug line-clamp-2">${cert.name}</h4>
+                                    <div class="mt-2 text-[11px] text-brand-red font-semibold flex items-center">
+                                        <i class="fas fa-check-circle mr-1 text-emerald-500"></i> Verified Credential
                                     </div>
                                 </div>
                             </a>
@@ -895,87 +1255,116 @@
     </section>
 
     <!-- SECTION 8 — ACHIEVEMENTS (#achievements) -->
-    <section id="achievements" class="py-24 text-white relative" style="background-color: #0a1930; background-image: radial-gradient(at 20% 30%, rgba(26,58,107,0.7) 0, transparent 50%), radial-gradient(at 80% 20%, rgba(220,38,38,0.4) 0, transparent 50%), radial-gradient(at 50% 80%, rgba(37,99,235,0.5) 0, transparent 50%);">
+    <section id="achievements" class="py-24 text-white relative" style="background-color: #071224; background-image: radial-gradient(at 20% 30%, rgba(26,58,107,0.8) 0, transparent 50%), radial-gradient(at 80% 20%, rgba(220,38,38,0.4) 0, transparent 50%), radial-gradient(at 50% 80%, rgba(37,99,235,0.5) 0, transparent 50%);">
         <div class="container mx-auto px-6 relative z-10">
             <div class="mb-16 text-center animate-on-scroll">
-                <h2 class="text-4xl font-extrabold font-heading inline-block relative mb-2">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-redAccent bg-white/10 px-3.5 py-1.5 rounded-full border border-white/20">
+                    Recognized Excellence
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading inline-block relative mt-3 mb-2">
                     Achievements & Recognition
                     <span class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-1.5 bg-brand-red rounded-full"></span>
                 </h2>
-                <p class="text-lg text-gray-300 mt-4">Milestones built through discipline, hard work, and continuous learning.</p>
+                <p class="text-slate-300 max-w-2xl mx-auto mt-4 text-base">
+                    Milestones achieved through relentless work ethic, commercial focus, and technical innovation.
+                </p>
             </div>
 
-            <!-- Stats -->
+            <!-- Stats Grid -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 animate-on-scroll">
                 <div class="text-center p-6 glass-card-dark rounded-2xl border border-white/10">
-                    <div class="text-4xl font-extrabold text-brand-redAccent mb-2 font-heading"><span class="counter" data-target="1">0</span>+</div>
-                    <div class="text-sm text-gray-300 font-semibold uppercase tracking-wider">Years Experience</div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-brand-redAccent mb-1 font-heading">
+                        ₹<span class="counter" data-target="15">0</span>L+
+                    </div>
+                    <div class="text-xs text-slate-300 font-semibold uppercase tracking-wider">Retail Sales (Single Month)</div>
                 </div>
                 <div class="text-center p-6 glass-card-dark rounded-2xl border border-white/10">
-                    <div class="text-4xl font-extrabold text-brand-accent mb-2 font-heading"><span class="counter" data-target="27">0</span>+</div>
-                    <div class="text-sm text-gray-300 font-semibold uppercase tracking-wider">Certifications</div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-blue-400 mb-1 font-heading">
+                        <span class="counter" data-target="1">0</span>
+                    </div>
+                    <div class="text-xs text-slate-300 font-semibold uppercase tracking-wider">Global FMCG (Unilever)</div>
                 </div>
                 <div class="text-center p-6 glass-card-dark rounded-2xl border border-white/10">
-                    <div class="text-4xl font-extrabold text-brand-redAccent mb-2 font-heading"><span class="counter" data-target="3">0</span></div>
-                    <div class="text-sm text-gray-300 font-semibold uppercase tracking-wider">Projects</div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-brand-redAccent mb-1 font-heading">
+                        <span class="counter" data-target="3">0</span>+
+                    </div>
+                    <div class="text-xs text-slate-300 font-semibold uppercase tracking-wider">Production Repositories</div>
                 </div>
                 <div class="text-center p-6 glass-card-dark rounded-2xl border border-white/10">
-                    <div class="text-4xl font-extrabold text-brand-accent mb-2 font-heading"><span class="counter" data-target="2">0</span></div>
-                    <div class="text-sm text-gray-300 font-semibold uppercase tracking-wider">Awards</div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-blue-400 mb-1 font-heading">
+                        <span class="counter" data-target="27">0</span>
+                    </div>
+                    <div class="text-xs text-slate-300 font-semibold uppercase tracking-wider">Verified Certifications</div>
                 </div>
             </div>
 
             <!-- Achievement Cards -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Card 1 -->
-                <div class="glass-card-dark p-6 rounded-2xl flex gap-4 animate-on-scroll hover:bg-white/10 transition-colors">
-                    <div class="text-brand-red text-4xl"><i class="fas fa-trophy"></i></div>
+                <!-- Card 1: Unilever FMCG Commercial Operations -->
+                <div class="glass-card-dark p-7 rounded-2xl flex gap-5 animate-on-scroll hover:bg-white/10 transition-colors border border-blue-500/30">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-600/30 text-blue-400 flex items-center justify-center text-2xl flex-shrink-0 font-extrabold border border-blue-400/40">
+                        U
+                    </div>
                     <div>
-                        <div class="flex justify-between items-start flex-wrap gap-2 mb-2">
+                        <div class="flex justify-between items-start flex-wrap gap-2 mb-1">
+                            <h3 class="text-xl font-bold font-heading">Unilever FMCG Commercial Operations</h3>
+                            <span class="bg-blue-500/20 text-blue-300 text-xs px-2.5 py-0.5 rounded border border-blue-500/40 font-bold">2026</span>
+                        </div>
+                        <p class="text-xs text-blue-300 mb-2 font-semibold uppercase tracking-wider">Unilever &middot; Global FMCG Multinational</p>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Spearheaded FMCG brand promotion, on-ground consumer activation, planogram adherence, and daily POS sales velocity reporting to optimize replenishment.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Landmark Group Best Performer -->
+                <div class="glass-card-dark p-7 rounded-2xl flex gap-5 animate-on-scroll hover:bg-white/10 transition-colors border border-red-500/30">
+                    <div class="w-14 h-14 rounded-2xl bg-red-600/30 text-red-400 flex items-center justify-center text-2xl flex-shrink-0 border border-red-400/40">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-start flex-wrap gap-2 mb-1">
                             <h3 class="text-xl font-bold font-heading">Best Performer of the Month</h3>
-                            <span class="bg-brand-red/20 text-brand-redAccent text-xs px-2 py-1 rounded border border-brand-red/30">2026</span>
+                            <span class="bg-brand-red/20 text-brand-redAccent text-xs px-2.5 py-0.5 rounded border border-brand-red/30 font-bold">2026</span>
                         </div>
-                        <p class="text-sm text-brand-accent mb-2 font-semibold">Max Fashion & Lifestyle | Professional</p>
-                        <p class="text-gray-300 text-sm">Achieved ~₹15 lakh in sales, 67 Elite memberships, and ₹96,000 in E-Sell revenue.</p>
+                        <p class="text-xs text-red-300 mb-2 font-semibold uppercase tracking-wider">Max Fashion &middot; Landmark Group</p>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Achieved top retail turnover (~₹15 Lakh), converted 67 Elite memberships, delivered ₹96,000 in ESell revenue, and trained oncoming interns.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="glass-card-dark p-6 rounded-2xl flex gap-4 animate-on-scroll hover:bg-white/10 transition-colors">
-                    <div class="text-brand-blue-light text-4xl"><i class="fas fa-microphone-alt"></i></div>
+                <!-- Card 3: Conference Presenter -->
+                <div class="glass-card-dark p-7 rounded-2xl flex gap-5 animate-on-scroll hover:bg-white/10 transition-colors border border-indigo-500/30">
+                    <div class="w-14 h-14 rounded-2xl bg-indigo-600/30 text-indigo-400 flex items-center justify-center text-2xl flex-shrink-0 border border-indigo-400/40">
+                        <i class="fas fa-microphone-alt"></i>
+                    </div>
                     <div>
-                        <div class="flex justify-between items-start flex-wrap gap-2 mb-2">
-                            <h3 class="text-xl font-bold font-heading">Conference Paper Presenter</h3>
-                            <span class="bg-brand-blue/30 text-brand-accent text-xs px-2 py-1 rounded border border-brand-blue/50">2026</span>
+                        <div class="flex justify-between items-start flex-wrap gap-2 mb-1">
+                            <h3 class="text-xl font-bold font-heading">International Conference Paper Presenter</h3>
+                            <span class="bg-indigo-500/20 text-indigo-300 text-xs px-2.5 py-0.5 rounded border border-indigo-500/40 font-bold">2026</span>
                         </div>
-                        <p class="text-sm text-brand-redAccent mb-2 font-semibold">10th Int. Globsyn Management Conference | Academic</p>
-                        <p class="text-gray-300 text-sm">Presented research on "AI Integration in Global Supply Chain Resilience" at The Tollygunge Club.</p>
+                        <p class="text-xs text-indigo-300 mb-2 font-semibold uppercase tracking-wider">10th Int. Globsyn Management Conference</p>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Presented research on "AI Integration in Global Supply Chain Resilience" at The Tollygunge Club before academic and industry dignitaries.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Card 3 -->
-                <div class="glass-card-dark p-6 rounded-2xl flex gap-4 animate-on-scroll hover:bg-white/10 transition-colors">
-                    <div class="text-brand-red text-4xl"><i class="fas fa-medal"></i></div>
-                    <div>
-                        <div class="flex justify-between items-start flex-wrap gap-2 mb-2">
-                            <h3 class="text-xl font-bold font-heading">NPTEL Elite Certification</h3>
-                            <span class="bg-brand-red/20 text-brand-redAccent text-xs px-2 py-1 rounded border border-brand-red/30">2026</span>
-                        </div>
-                        <p class="text-sm text-brand-accent mb-2 font-semibold">NPTEL | Academic</p>
-                        <p class="text-gray-300 text-sm">Scored 75/75 in "AI for Management," achieving Elite distinction.</p>
+                <!-- Card 4: NPTEL Elite -->
+                <div class="glass-card-dark p-7 rounded-2xl flex gap-5 animate-on-scroll hover:bg-white/10 transition-colors border border-amber-500/30">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-600/30 text-amber-400 flex items-center justify-center text-2xl flex-shrink-0 border border-amber-400/40">
+                        <i class="fas fa-medal"></i>
                     </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="glass-card-dark p-6 rounded-2xl flex gap-4 animate-on-scroll hover:bg-white/10 transition-colors">
-                    <div class="text-brand-blue-light text-4xl"><i class="fas fa-hands-helping"></i></div>
                     <div>
-                        <div class="flex justify-between items-start flex-wrap gap-2 mb-2">
-                            <h3 class="text-xl font-bold font-heading">Vice President — KYLF</h3>
-                            <span class="bg-brand-blue/30 text-brand-accent text-xs px-2 py-1 rounded border border-brand-blue/50">Ongoing</span>
+                        <div class="flex justify-between items-start flex-wrap gap-2 mb-1">
+                            <h3 class="text-xl font-bold font-heading">NPTEL Elite Distinction (75/75 Score)</h3>
+                            <span class="bg-amber-500/20 text-amber-300 text-xs px-2.5 py-0.5 rounded border border-amber-500/40 font-bold">2026</span>
                         </div>
-                        <p class="text-sm text-brand-redAccent mb-2 font-semibold">KYLF | Leadership</p>
-                        <p class="text-gray-300 text-sm">Leads youth community leadership initiatives and coordinates events.</p>
+                        <p class="text-xs text-amber-300 mb-2 font-semibold uppercase tracking-wider">NPTEL &middot; IIT Kharagpur</p>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Achieved a perfect score (75/75, 100%) in "AI for Management", earning the prestigious Elite distinction for business AI acumen.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -986,175 +1375,262 @@
     <section id="contact" class="py-24 bg-white relative">
         <div class="container mx-auto px-6">
             <div class="mb-16 text-center animate-on-scroll">
-                <h2 class="text-4xl font-extrabold font-heading text-brand-dark inline-block relative">
-                    Let's Build Something Great Together
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-blue bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200">
+                    Open To Opportunities
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 mt-3 inline-block relative">
+                    Let's Build Something High-Impact
                     <span class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-1.5 bg-brand-blue rounded-full"></span>
                 </h2>
+                <p class="text-slate-600 max-w-xl mx-auto mt-4 text-base">
+                    Interested in discussing corporate leadership, commercial growth roles, or enterprise AI/BI systems? Let's connect.
+                </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
                 <!-- Form -->
-                <div class="glass-card p-8 rounded-2xl shadow-xl animate-on-scroll">
-                    <form class="space-y-6" onsubmit="event.preventDefault(); alert('Thank you for reaching out! I will get back to you soon.');">
+                <div class="glass-card p-8 sm:p-10 rounded-2xl shadow-xl animate-on-scroll">
+                    <h3 class="text-2xl font-bold font-heading text-slate-900 mb-6">Send an Inquiry</h3>
+                    <form class="space-y-5" onsubmit="event.preventDefault(); alert('Thank you for reaching out! I will review your message and reply promptly.');">
                         <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
-                            <input type="text" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all" required>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Full Name</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-sm" placeholder="e.g. John Doe" required>
                         </div>
                         <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
-                            <input type="email" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all" required>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Corporate / Direct Email</label>
+                            <input type="email" class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-sm" placeholder="john@enterprise.com" required>
                         </div>
                         <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Subject</label>
-                            <input type="text" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all" required>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Subject / Opportunity Scope</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-sm" placeholder="e.g. Commercial Management / BI Project" required>
                         </div>
                         <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Message</label>
-                            <textarea rows="4" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all resize-none" required></textarea>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Message</label>
+                            <textarea rows="4" class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all resize-none text-sm" placeholder="Please outline the requirements or context..." required></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-gradient-to-r from-brand-blue to-brand-red text-white font-bold py-4 rounded-lg hover:shadow-lg hover:shadow-blue-500/30 transition-all transform hover:-translate-y-1">
+                        <button type="submit" class="w-full bg-gradient-to-r from-brand-blue to-brand-light text-white font-bold py-3.5 rounded-lg hover:shadow-lg hover:shadow-blue-500/30 transition-all transform hover:-translate-y-0.5 text-sm cursor-pointer">
                             Send Message <i class="fas fa-paper-plane ml-2"></i>
                         </button>
                     </form>
                 </div>
 
                 <!-- Info Panel -->
-                <div class="bg-brand-dark rounded-2xl p-10 text-white flex flex-col justify-between shadow-xl animate-on-scroll relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-brand-red rounded-full filter blur-3xl opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>
-                    <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-blue rounded-full filter blur-3xl opacity-30 transform -translate-x-1/2 translate-y-1/2"></div>
+                <div class="bg-slate-900 rounded-2xl p-8 sm:p-10 text-white flex flex-col justify-between shadow-2xl animate-on-scroll relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-brand-red rounded-full filter blur-3xl opacity-20 transform translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+                    <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-blue rounded-full filter blur-3xl opacity-30 transform -translate-x-1/2 translate-y-1/2 pointer-events-none"></div>
                     
                     <div class="relative z-10">
-                        <h3 class="text-3xl font-bold font-heading mb-6">Contact Information</h3>
-                        <p class="text-gray-300 mb-10 text-lg">Whether you have a question about my services, want to discuss a potential project, or just want to say hi, my inbox is always open.</p>
+                        <h3 class="text-2xl sm:text-3xl font-bold font-heading mb-4">Direct Contact</h3>
+                        <p class="text-slate-300 mb-8 text-sm sm:text-base leading-relaxed">
+                            Actively engaging with MNC hiring leaders, commercial recruiters, and prospective collaborators for strategy, revenue operations, and analytics roles.
+                        </p>
                         
-                        <div class="space-y-8">
+                        <div class="space-y-6">
                             <a href="mailto:shidullalaskar93@gmail.com" class="flex items-center gap-4 group">
-                                <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-brand-red transition-colors text-xl">
+                                <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-brand-red transition-colors text-lg text-white">
                                     <i class="fas fa-envelope"></i>
                                 </div>
                                 <div>
-                                    <p class="text-sm text-gray-400 font-semibold uppercase tracking-wider">Email</p>
-                                    <p class="text-lg group-hover:text-brand-redAccent transition-colors">shidullalaskar93@gmail.com</p>
+                                    <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Email Address</p>
+                                    <p class="text-base font-semibold group-hover:text-red-400 transition-colors">shidullalaskar93@gmail.com</p>
                                 </div>
                             </a>
                             
                             <a href="tel:+919859061440" class="flex items-center gap-4 group">
-                                <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-brand-blue transition-colors text-xl">
+                                <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-brand-blue transition-colors text-lg text-white">
                                     <i class="fas fa-phone-alt"></i>
                                 </div>
                                 <div>
-                                    <p class="text-sm text-gray-400 font-semibold uppercase tracking-wider">Phone</p>
-                                    <p class="text-lg group-hover:text-brand-accent transition-colors">+91-9859061440</p>
+                                    <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Phone / WhatsApp</p>
+                                    <p class="text-base font-semibold group-hover:text-blue-300 transition-colors">+91-9859061440</p>
                                 </div>
                             </a>
                             
                             <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-xl text-brand-redLight">
+                                <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-lg text-brand-redLight">
                                     <i class="fas fa-map-marker-alt"></i>
                                 </div>
                                 <div>
-                                    <p class="text-sm text-gray-400 font-semibold uppercase tracking-wider">Location</p>
-                                    <p class="text-lg">Kolkata, West Bengal, India</p>
+                                    <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Base Location</p>
+                                    <p class="text-base font-semibold">Kolkata, West Bengal, India</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="mt-12 pt-8 border-t border-white/10 relative z-10 flex gap-4">
-                        <a href="https://github.com/shidullalaskar93-coder" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white hover:text-brand-dark transition-all text-xl"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/shidulla-gbs" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#0A66C2] hover:text-white transition-all text-xl"><i class="fab fa-linkedin-in"></i></a>
+                    <div class="mt-10 pt-6 border-t border-white/10 relative z-10 flex items-center justify-between">
+                        <div class="flex gap-3">
+                            <a href="https://github.com/shidullalaskar93-coder" target="_blank" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-white hover:text-slate-900 transition-all text-lg" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/shidulla-gbs" target="_blank" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-[#0A66C2] hover:text-white transition-all text-lg" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                        <span class="text-xs text-slate-400 font-medium">Responses within 24 hours</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-gray-900 text-white py-12 border-t-4 border-brand-red">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-            <div class="flex items-center gap-4 mb-6 md:mb-0">
-                <img src="assets/profile/sl_logo.png" alt="SL Logo" class="h-12 w-auto grayscale brightness-200">
+    <!-- FOOTER (Clean Corporate Monogram - No Old Logo) -->
+    <footer class="bg-slate-950 text-white py-12 border-t-2 border-brand-red">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-blue via-brand-light to-brand-red flex items-center justify-center text-white font-extrabold text-base shadow-md">
+                    SL
+                </div>
                 <div>
-                    <h3 class="font-bold text-xl font-heading tracking-wider">Shidulla Laskar</h3>
-                    <p class="text-gray-400 text-sm">Turning Data & Strategy into Growth.</p>
+                    <h3 class="font-bold text-lg font-heading tracking-wide">Shidulla Laskar</h3>
+                    <p class="text-slate-400 text-xs">Commercial Strategy &middot; Enterprise BI &middot; FMCG Operations</p>
                 </div>
             </div>
             
-            <div class="flex gap-4 mb-6 md:mb-0">
-                <a href="https://github.com/shidullalaskar93-coder" target="_blank" class="text-gray-400 hover:text-white transition-colors text-2xl"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/shidulla-gbs" target="_blank" class="text-gray-400 hover:text-[#0A66C2] transition-colors text-2xl"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:shidullalaskar93@gmail.com" class="text-gray-400 hover:text-brand-redAccent transition-colors text-2xl"><i class="fas fa-envelope"></i></a>
+            <div class="flex gap-5 text-xl">
+                <a href="https://github.com/shidullalaskar93-coder" target="_blank" class="text-slate-400 hover:text-white transition-colors" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/shidulla-gbs" target="_blank" class="text-slate-400 hover:text-[#0A66C2] transition-colors" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:shidullalaskar93@gmail.com" class="text-slate-400 hover:text-brand-redAccent transition-colors" title="Email"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
-        <div class="container mx-auto px-6 text-center mt-8 pt-8 border-t border-gray-800 text-gray-500 text-sm font-semibold">
-            &copy; 2026 Shidulla Laskar. All rights reserved.
+        <div class="container mx-auto px-6 text-center mt-8 pt-6 border-t border-slate-900 text-slate-500 text-xs font-medium">
+            &copy; 2026 Shidulla Laskar. All rights reserved. &middot; Portfolio built for High MNC & Enterprise Commercial Leadership.
         </div>
     </footer>
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script>
-        // Intersection Observer for Scroll Animations
+        // 1. Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('flex');
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                });
+            });
+        }
+
+        // 2. Dynamic Rotating Typewriter Effect
+        const phrases = [
+            "Commercial Strategy & Enterprise Business Intelligence",
+            "Unilever FMCG Brand & Retail Operations Alum",
+            "Builder of Production AI Decision Support Systems",
+            "MBA Candidate — Marketing & International Business",
+            "Revenue Operations & Resilient Pipeline Architect"
+        ];
+        const typewriterEl = document.getElementById('typewriter');
+        if (typewriterEl) {
+            let phraseIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let typeSpeed = 50;
+
+            function loopTypewriter() {
+                const currentPhrase = phrases[phraseIndex];
+                if (isDeleting) {
+                    typewriterEl.textContent = currentPhrase.substring(0, charIndex - 1);
+                    charIndex--;
+                    typeSpeed = 25;
+                } else {
+                    typewriterEl.textContent = currentPhrase.substring(0, charIndex + 1);
+                    charIndex++;
+                    typeSpeed = 60;
+                }
+
+                if (!isDeleting && charIndex === currentPhrase.length) {
+                    typeSpeed = 2200; // Pause at end of phrase
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    typeSpeed = 400; // Brief pause before typing next phrase
+                }
+
+                setTimeout(loopTypewriter, typeSpeed);
+            }
+            setTimeout(loopTypewriter, 800);
+        }
+
+        // 3. Project Filter Tabs
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+                projectCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        card.style.display = 'flex';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(15px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 250);
+                    }
+                });
+            });
+        });
+
+        // 4. Scroll Intersection Animations & Counter Trigger
         const observerOptions = {
             root: null,
             rootMargin: '0px',
             threshold: 0.1
         };
 
-        const observer = new IntersectionObserver((entries, observer) => {
+        const scrollObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
-                    // If it's a stat counter, trigger animation
-                    if(entry.target.querySelector('.counter')) {
-                        animateCounters(entry.target);
+                    if (entry.target.querySelector('.counter')) {
+                        runCounters(entry.target);
                     }
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
+        document.querySelectorAll('.animate-on-scroll').forEach(el => scrollObserver.observe(el));
 
-        // Counter Animation
-        let animated = false;
-        function animateCounters(container) {
-            if(animated) return;
+        // 5. Stat Counter Animation
+        let countersRan = false;
+        function runCounters(container) {
+            if (countersRan) return;
             const counters = container.querySelectorAll('.counter');
             counters.forEach(counter => {
                 const target = +counter.getAttribute('data-target');
-                const duration = 2000;
-                const increment = target / (duration / 16);
+                const duration = 1800;
+                const increment = target / (duration / 20);
                 let current = 0;
 
-                const updateCounter = () => {
+                const updateCount = () => {
                     current += increment;
                     if (current < target) {
                         counter.innerText = Math.ceil(current);
-                        requestAnimationFrame(updateCounter);
+                        requestAnimationFrame(updateCount);
                     } else {
                         counter.innerText = target;
                     }
                 };
-                updateCounter();
+                updateCount();
             });
-            animated = true;
+            countersRan = true;
         }
-
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('shadow-md', 'py-2');
-                nav.classList.remove('py-4');
-                nav.classList.replace('bg-white/70', 'bg-white/95');
-            } else {
-                nav.classList.remove('shadow-md', 'py-2');
-                nav.classList.add('py-4');
-                nav.classList.replace('bg-white/95', 'bg-white/70');
-            }
-        });
     </script>
 </body>
 </html>
